@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instructions for Online Examination</title>
+  <link rel="stylesheet" href="instruction.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <img src="logo.png" width="200" height="50" alt="Logo" class="logo" />
+    
+  </div>
+
+  <div class="instructions-wrapper">
+    <h2>Instructions for Online Examination</h2>
+    <p class="highlight">Please read the instructions carefully before starting the examination.</p>
+    
+    <ol>
+      <li>Click on <strong>Start Exam</strong> button at the bottom of your screen to begin the examination.</li>
+      <li>The clock has been set at the server, and the countdown timer at the top right of the screen will display the remaining time.</li>
+      <li>Click on <strong>Next</strong> button to move to the next question.</li>
+      <li>The color-coded diagram on the right side of the screen shows the status of questions:
+        <table class="status-table">
+          <tr><td><div class="red-box"></div></td><td>Not Answered / Not Attempted Questions.</td></tr>
+          <tr><td><div class="green-box"></div></td><td>Answered / Attempted Questions.</td></tr>
+          <tr><td><div class="white-box"></div></td><td>Not visited.</td></tr>
+        </table>
+      </li>
+      <li>All answered questions will be counted for calculating the final score.</li>
+      <li>Do not click End Exam before completing the test. Once ended, you will not be allowed to rejoin.</li>
+      <li>Ensure you're alone and free from distractions.</li>
+      <li>Do not refresh or close the window once the exam starts.</li>
+      <li>Switching tabs may result in automatic termination.</li>
+      <li>Avoid using mobile phones or external devices.</li>
+      <li>Ensure your internet connection is stable throughout the test.</li>
+      <li>Once the exam starts, the timer will not pause.</li>
+    </ol>
+
+    <div class="confirmation">
+      <input type="checkbox" id="agreeCheckbox" />
+      <label for="agreeCheckbox">I have read and understood the instructions given above</label>
+    </div>
+
+    <button id="startButton" class="start-button" disabled>Start Exam</button>
+  </div>
+
+  <script src="instruction.js"></script>
+</body>
+</html>
