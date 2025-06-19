@@ -1,0 +1,66 @@
+/* ========== General Page Styling ========== */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f2f4f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== Header Styling ========== */
+.page-header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+/* ========== Feedback Section Styling ========== */
+#feedbackDetails {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 25px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Convert <p> elements to row-like layout for clean tabular format */
+#feedbackDetails p {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+  margin: 0;
+  color: #333;
+}
+
+/* Styling the label part (the <strong>) */
+#feedbackDetails p strong {
+  flex: 1;
+  color: #444;
+}
+
+/* Optional future enhancement: Inject dynamic value with JS and style it */
+/* #feedbackDetails p::after {
+    content: attr(data-value);
+    flex: 2;
+    color: #666;
+    text-align: right;
+  } */
+
+/* ========== Footer Styling ========== */
+.page-footer {
+  text-align: center;
+  padding: 16px 0;
+  background-color: #f1f1f1;
+  color: #555;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+}

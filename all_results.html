@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Results</title>
+    <!-- Link to your main CSS file for global layout and styles -->
+    <link rel="stylesheet" href="./RP.css">
+</head>
+<body>
+    <!-- Overall layout container for sidebar and main content -->
+    <div class="layout-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/logo.png" width="200" height="50" alt="Logo">
+            </div>
+            <ul class="main-nav">
+                <li class="nav-item dropdown">
+                    <a href="#" class="dropdown-toggle">Assessment</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./configure.html">Configure Test</a>
+                        <a class="dropdown-item" href="./apply.html">Take Test</a>
+                        <a class="dropdown-item" href="./my_result.html">My Result</a>
+                        <!-- Set 'All Results' as active -->
+                        <a class="dropdown-item active" href="./all_results.html">All Results</a>
+                        <a class="dropdown-item" href="./feedback_form.html">Give Feedback</a>
+                        <a class="dropdown-item" href="./view_feedback.html">View Feedback</a>
+                    </div>
+                </li>
+            </ul>
+            <div class="profile">
+                <span id="user-name">Guest</span>
+                <img src="/profile logo.avif" alt="Profile" class="profile-pic">
+            </div>
+        </div>
+
+        <!-- Main Area for Top Bar and Content -->
+        <div class="main-area">
+            <!-- Top Bar Section -->
+            <div class="top-bar">
+                <!-- Content for the top bar can go here, e.g., a simple title or quick actions -->
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="header">
+                    <h1>All Results</h1>
+                    <div class="profile-header">
+                        <span><span id="user-name-header">Guest</span></span>
+                        <img src="/profile logo.avif" alt="Profile">
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>ROLE</th>
+                            <th>DATE</th>
+                            <th>PERCENTAGE</th>
+                            <th>STATUS</th>
+                            <th>EMAIL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>Software Engineer</td>
+                            <td>2025-06-17</td>
+                            <td>85%</td>
+                            <td>Pass</td>
+                            <td>john.doe@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Jane Smith</td>
+                            <td>UX Designer</td>
+                            <td>2025-06-16</td>
+                            <td>70%</td>
+                            <td>Pass</td>
+                            <td>jane.smith@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Peter Jones</td>
+                            <td>Data Analyst</td>
+                            <td>2025-06-15</td>
+                            <td>55%</td>
+                            <td>Fail</td>
+                            <td>peter.jones@example.com</td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

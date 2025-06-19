@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Assessment</title>
+  <link rel="stylesheet" href="assessment.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo-circle"></div>
+    <div class="company-name">Company Name</div>
+  </header>
+
+  <main class="main-layout">
+    <section class="left-panel">
+      <div class="timer-box">Timer: <span id="timer">30:00</span></div>
+      <div class="question-block">
+        <div class="question-label">Q.</div>
+        <div class="question-text" id="question-text">(Question Here)</div>
+      </div>
+      <textarea id="answer" placeholder="Answer.."></textarea>
+
+      <div class="bottom-left">
+        <div class="camera-box">
+          <video id="camera" autoplay muted playsinline></video>
+        </div>
+        <div class="next-btn-box">
+          <button id="next-btn">Next</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="right-panel">
+      <div class="stats-box">
+        <p>Attempted - <span id="attempted">0</span></p>
+        <p>Not Attempted - <span id="notAttempted">0</span></p>
+      </div>
+      <div class="question-nav">
+        <h3>QUESTIONS</h3>
+        <div id="question-buttons"></div>
+      </div>
+      <button id="end-test-btn">End Test</button>
+    </aside>
+  </main>
+
+  <script src="assessment.js"></script>
+</body>
+</html>

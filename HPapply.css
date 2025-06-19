@@ -1,0 +1,489 @@
+:root {
+    --dark-background: #2c3e50;
+    --light-text: #ecf0f1;
+    --grey-text: #bdc3c7;
+    --active-bg: #dc3545; /* A darker red for active states */
+    --sidebar-gray: #808080; /* Gray color for sidebar background */
+    --sidebar-dark-gray: #495057; /* Darker gray for hover states */
+    --top-bar-red: #dc3545; /* Red color for top bar */
+    --primary-red: #E74C3C; /* Ensure this variable is defined */
+     --hover-bg: #b52b1f;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.layout-container {
+    display: flex; /* Arranges sidebar and main-area side-by-side */
+    min-height: 100vh; /* Ensures the container takes full viewport height */
+    width: 100%; /* Ensure it spans full width */
+}
+
+/* --- Sidebar (Left Navigation Bar) Styles --- */
+.sidebar {
+    width: 200px; /* Fixed width for the left sidebar */
+    background-color: var(--sidebar-gray);
+    color: var(--light-text);
+    padding: 20px 0; /* Vertical padding */
+    display: flex;
+    flex-direction: column; /* Stack logo, nav, profile vertically */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
+    flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.sidebar .logo {
+    text-align: center; /* Center logo in sidebar */
+    padding: 0; /* Reset padding to match reference */
+    margin-top: -21px; /* Match reference margin-top */
+}
+
+.sidebar .logo img {
+    border-radius: 0%;
+    object-fit: cover;
+    background-color: var(--light-text);
+}
+
+.sidebar .main-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0; /* Ensure no default margin */
+    flex-grow: 1; /* Allows nav to take available vertical space */
+    display: flex;
+    flex-direction: column; /* Stack nav items vertically */
+}
+
+.sidebar .main-nav li {
+    position: relative;
+    margin: 0; /* No horizontal margin needed for vertical list */
+}
+
+/* Base style for ALL clickable nav items (direct links, dropdown toggles, dropdown items) */
+.sidebar .main-nav .nav-item,
+.sidebar .main-nav .nav-link,
+.sidebar .main-nav .dropdown-item {
+    display: block;
+    padding: 15px 20px; /* Base padding */
+    color: var(--light-text);
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease; /* Added border-left-color to transition */
+    border-left: 5px solid transparent; /* Consistent space for border */
+    border-bottom: none; /* No bottom border for vertical list */
+}
+
+/* MODIFIED: Updated hover effects - Assessment gets red background on hover */
+.sidebar .main-nav .nav-item:hover,
+.sidebar .main-nav .nav-link:hover {
+    background-color: var(--top-bar-red);
+    color: var(--light-text); /* Keep text white */
+}
+
+/* MODIFIED: Separate hover for dropdown items - red text, white background */
+.sidebar .main-nav .dropdown-item:hover {
+    background-color: #fff !important; /* Keep white background */
+    color: var(--top-bar-red) !important; /* Red text color */
+}
+
+/* MODIFIED: Updated active state to use darker gray background */
+.sidebar .main-nav .nav-item.active {
+    background-color: var(--sidebar-dark-gray);
+    font-weight: bold;
+    border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* MODIFIED: Updated dropdown toggle active state - red background when toggled */
+.sidebar .main-nav .dropdown-toggle.active {
+    background-color: var(--top-bar-red); /* Red background when dropdown is open */
+    font-weight: bold;
+    border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Active state for dropdown menu items (e.g., My Result, All Result) */
+.sidebar .main-nav .dropdown-item.active {
+    background-color: var(--top-bar-red); /* Darker background for active sub-item */
+    font-weight: bold;
+    border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Dropdown specific styles */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    background-color: #ffffff; /* Same as sidebar for seamless look */
+    padding: 0; /* Remove default list padding */
+    list-style: none;
+    border-radius: 0px; /* No rounded corners */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* With shadow */
+    position: static; /* Position normally within the flow of the list */
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Indent dropdown items more. This padding is in *addition* to the 20px base + 5px transparent border */
+.dropdown-menu .dropdown-item {
+    padding-left: 45px; /* (20px base + 5px border) + 20px extra indent = 45px total */
+    color: #000 !important; /* Black text */
+    background-color: #fff; /* White background */
+    text-decoration: none; /* No underline */
+}
+
+/* Basic arrow styling for dropdown toggles */
+.dropdown-toggle::after {
+    content: "▶"; /* Right-pointing arrow */
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active::after {
+    transform: rotate(90deg); /* Rotate arrow when active/open */
+}
+
+.sidebar .profile {
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Pushes profile to the bottom */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .profile .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 0;
+    margin-top: 10px;
+    background-color: var(--light-text);
+}
+
+/* Apply default white color only to top-level sidebar links */
+.sidebar > ul.main-nav > li > a {
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+/* --- Main Content Area --- */
+.main-area {
+    flex-grow: 1; /* Takes all remaining width */
+    width: 100%; /* Ensures it fills its container */
+    display: flex;
+    flex-direction: column; /* Stack top-bar and main-content vertically */
+}
+
+.top-bar {
+    height: 50px;
+    background-color: var(--top-bar-red); /* Red color for top bar */
+    width: 100%; /* Spans full width of main-area */
+    display: flex; /* Added flex display for content alignment */
+    align-items: center; /* Center content vertically */
+    padding: 0 20px; /* Added horizontal padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+/* .main-content {
+    
+} */
+
+.header {
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form Layout */
+.apply-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  flex-grow: 1; /* Takes remaining vertical space within main-area */
+    padding: 20px;
+    overflow-y: auto;
+    width: auto; /* Let flex handle width */
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    border-radius: 0;
+    margin: 20px; /* Space around the main content block */
+}
+
+.form-wrapper {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 15px var(--shadow-light);
+}
+
+.form-wrapper h2 {
+  font-size: 20px;
+  color: var(--dark-background);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Form Groups */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 14px;
+}
+
+.form-group label {
+  width: 150px;
+  text-align: right;
+  margin-right: 15px;
+  color: #555;
+  font-size: 14px; /* ✅ Label font size */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"] {
+  width: 250px;
+  padding: 0.6rem;
+  font-size: 14px; /* ✅ Input font size */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: var(--input-bg-light-grey);
+}
+
+/* Experience Input */
+.experience-group {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.experience-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.experience-inputs input[type="number"] {
+  width: 60px;
+  padding: 0.6rem;
+  font-size: 14px;
+  text-align: center;
+}
+
+.inline-label {
+  font-size: 14px;
+  color: #555;
+}
+
+.freshers-note {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  margin-top: 0;
+  width: 100%;
+}
+
+/* Headshot section */
+.headshot-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.headshot-section h3 {
+  color: var(--dark-background);
+  margin-bottom: 15px;
+  font-size:18px;
+}
+
+.video-container {
+  position: relative;
+  border: 2px dashed var(--border-color);
+  background: #edf2f7;
+  overflow: hidden;
+  border-radius: 10px;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.video-container video,
+.video-container canvas,
+.video-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Buttons */
+.capture-btn,
+.submit-btn {
+  display: block;
+  margin: 1rem auto;
+  padding: 0.6rem 1.5rem;
+  background-color: var(--primary-red);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+}
+
+.capture-btn:hover,
+.submit-btn:hover {
+  background-color: var(--hover-bg);
+}
+
+/* Utility Classes */
+.hidden {
+  display: none;
+}
+
+.error-text {
+  color: var(--active-bg);
+  font-size: 0.9em;
+  margin-top: 5px;
+  text-align: center;
+}
+html, body {
+    overflow-x: hidden; /* Stop horizontal scrolling */
+}
+
+/* Font size for Assessment and Dropdown Items */
+.sidebar .main-nav .nav-link,
+.sidebar .main-nav .dropdown-toggle,
+.sidebar .main-nav .dropdown-item {
+    font-size: 14px;
+}
+
+/* h1 font size */
+.header h1 {
+    font-size: 20px;
+}
+
+/* h2 font size */
+h2, .main-content h2 {
+    font-size: 18px;
+}
+.error-text.hidden {
+  display: none;
+}
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 14px;
+  color: var(--light-text); /* for better visibility on dark backgrounds */
+}
+
+.form-group label {
+  width: 130px;
+  margin-right: 10px;
+  text-align: right;
+  color: #333; /* or use #000 for full black, #555 for medium-dark */
+  font-weight: 500;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"] {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  font-size: 14px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  color: #200b0b;
+  border-radius: 4px;
+  outline: none;
+}
+
+/* Special styling for experience group */
+.experience-group {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.experience-inputs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.experience-inputs input[type="number"] {
+  width: 60px;
+  text-align: center;
+}
+
+/* Submit button alignment */
+.submit-btn {
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.6rem 2rem;
+  font-size: 1rem;
+  border: 2px solid #fff;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="number"] {
+  color: #000; /* black input text */
+  border: 1px solid #ccc; /* light grey border */
+  background-color: #fff; /* white input background */
+}
+:root {
+    --hover-bg: #b52b1f; /* 🔴 Custom hover color: darker red */
+}
+.capture-btn:hover,
+.submit-btn:hover {
+    background-color: #b52b1f; /* 🔴 New hover color */
+}
+.capture-btn,
+.submit-btn {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.6rem 1.5rem;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+/* 🔁 Updated hover effect */
+.capture-btn:hover,
+.submit-btn:hover {
+    background-color: #b52b1f; /* Custom red on hover */
+}
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Result</title>
+    <!-- Link to your main stylesheet for global styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link to the specific stylesheet for My Result page -->
+    <link rel="stylesheet" href="my_result.css">
+</head>
+<body>
+    <div class="layout-container">
+        <!-- Sidebar remains the same -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="/logo.png" width="200" height="50" alt="Logo">
+            </div>
+            <ul class="main-nav">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Assessment</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./RPconfigure.html">Configure Test</a>
+                        <a class="dropdown-item" href="./HPapply.html">Take Test</a>
+                        <a class="dropdown-item active" href="./my_result.html">My Result</a> <!-- Added active class -->
+                        <a class="dropdown-item" href="./all_results.html">All Results</a>
+                        <a class="dropdown-item" href="./feedback_form.html">Give Feedback</a>
+                        <a class="dropdown-item" href="./view_feedback.html">View Feedback</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-area">
+            <!-- Top bar as seen in the desired dashboard layout -->
+            <div class="top-bar"></div>
+
+            <!-- Main content area now nested inside main-area -->
+            <div class="main-content">
+                <!-- Header content for My Result page -->
+                <div class="header">
+                    <h1>My Result</h1> <!-- Retained for My Result page -->
+                    <div class="profile-header">
+                        <span>Hello, <span id="user-name-header">Guest</span></span>
+                        <img src="/profile logo.avif" alt="Profile">
+                    </div>
+                </div>
+
+                <!-- Existing result summary content - MOVED INSIDE main-content -->
+                <div class="result-summary">
+                    <h2>Your Test Result</h2>
+                    <div class="result-item">
+                        <span>Total Questions:</span>
+                        <span>20</span>
+                    </div>
+                    <div class="result-item">
+                        <span>No. of Correct Questions:</span>
+                        <span>15</span>
+                    </div>
+                    <div class="result-item">
+                        <span>No. of Incorrect Questions:</span>
+                        <span>5</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Total Marks:</span>
+                        <span>100</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Obtained Marks:</span>
+                        <span>75</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Percentage:</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="result-footer">
+                        Result: <span class="pass">Pass</span>
+                    </div>
+                </div>
+
+                <!-- Feedback button - MOVED INSIDE main-content -->
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="./feedback_form.html" class="feedback-button">Fill Feedback Form</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

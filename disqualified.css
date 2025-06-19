@@ -1,0 +1,27 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #fef2f2;
+  height: 100%;
+}
+
+.disqualified-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.disqualified-container h1 {
+  color: #b91c1c;
+  font-size: 2rem;
+}
+
+.disqualified-container p {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #333;
+}

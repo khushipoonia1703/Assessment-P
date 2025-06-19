@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interview Application</title>
+  <link rel="stylesheet" href="apply.css" />
+</head>
+<body>
+ 
+
+  <div class="apply-container">
+    <div class="form-wrapper">
+      <h2>Interviewee Information</h2>
+
+
+      <div class="headshot-section">
+        <h3>Headshot</h3>
+          <div class="video-container square-box">
+                        <video id="video" autoplay playsinline></video>
+                        <canvas id="canvas" class="hidden"></canvas>
+                        <img id="captured-img" class="hidden" alt="Captured" />
+                        <p id="camera-error" class="error-text hidden"></p>
+                    </div>
+                    <button id="capture-btn" class="capture-btn">Capture</button>
+                    <input type="hidden" id="capturedImageData" name="captured_image_data">
+                </div>
+
+      <form id="interview-form">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="fullName" required />
+        </div>
+
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="email" required />
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" id="phoneNumber" required />
+        </div>
+
+        <div class="form-group">
+          <label>Job Role</label>
+          <input type="text" id="jobRole" required />
+        </div>
+
+        <button type="submit" class="submit-btn small-btn">Start Interview</button>
+
+      </form>
+    </div>
+  </div>
+
+  <script src="apply.js"></script>
+</body>
+</html>

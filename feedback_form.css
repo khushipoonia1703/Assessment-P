@@ -1,0 +1,436 @@
+:root {
+    --dark-background: #2c3e50;
+    --light-text: #ecf0f1;
+    --grey-text: #bdc3c7;
+    --active-bg: #dc3545; /* A darker red for active states */
+    --sidebar-gray: #808080; /* Gray color for sidebar background */
+    --sidebar-dark-gray: #495057; /* Darker gray for hover states */
+    --top-bar-red: #dc3545; /* Red color for top bar */
+    --primary-red: #E74C3C;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.layout-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: var(--sidebar-gray); /* Changed from var(--primary-red) to gray */
+    color: var(--light-text);
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
+}
+
+.sidebar .logo {
+    text-align: center;
+    padding: 0;
+    margin-top: -21px;
+}
+
+.sidebar .logo img {
+    border-radius: 0%;
+    object-fit: cover;
+    background-color: var(--light-text);
+}
+
+.sidebar .main-nav {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1; /* Allows nav to take available space */
+}
+
+.sidebar .main-nav li {
+    position: relative; /* For dropdown positioning */
+}
+
+/* Base style for ALL clickable nav items (direct links, dropdown toggles, dropdown items) */
+.sidebar .main-nav .nav-item,
+.sidebar .main-nav .nav-link,
+.sidebar .main-nav .dropdown-item {
+    display: block;
+    padding: 15px 20px; /* Base padding */
+    color: var(--light-text);
+    text-decoration: none;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease; /* Added border-left-color to transition */
+    border-left: 5px solid transparent; /* Consistent space for border */
+}
+
+/* MODIFIED: Updated hover effects - Assessment gets red background on hover */
+.sidebar .main-nav .nav-item:hover,
+.sidebar .main-nav .nav-link:hover {
+    background-color: var(--top-bar-red);
+    color: var(--light-text); /* Keep text white */
+}
+
+/* MODIFIED: Separate hover for dropdown items - red text, white background */
+.sidebar .main-nav .dropdown-item:hover {
+    background-color: #fff !important; /* Keep white background */
+    color: var(--top-bar-red) !important; /* Red text color */
+}
+
+/* MODIFIED: Updated active state to use darker gray background */
+.sidebar .main-nav .nav-item.active {
+    background-color: var(--sidebar-dark-gray);
+    font-weight: bold;
+    border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* MODIFIED: Updated dropdown toggle active state - red background when toggled */
+.sidebar .main-nav .dropdown-toggle.active {
+    background-color: var(--top-bar-red); /* Red background when dropdown is open */
+    font-weight: bold;
+    border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Active state for dropdown menu items (e.g., My Result, All Result) */
+.sidebar .main-nav .dropdown-item.active {
+    background-color: var(--top-bar-red); /* Darker background for active sub-item */
+    font-weight: bold;
+    border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Dropdown specific styles */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    background-color: #ffffff; /* Same as sidebar for seamless look */
+    padding: 0; /* Remove default list padding */
+    list-style: none;
+    border-radius: 0px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu.show {
+    display: block; /* Shown when 'show' class is added by JS */
+}
+
+/* Indent dropdown items more. This padding is in *addition* to the 20px base + 5px transparent border */
+.dropdown-menu .dropdown-item {
+    padding-left: 45px; /* (20px base + 5px border) + 20px extra indent = 45px total */
+    color: #000; /* Lighter text for dropdown items */
+    background-color: #fff;
+}
+
+/* Basic arrow styling for dropdown toggles */
+.dropdown-toggle::after {
+    content: "▶"; /* Right-pointing arrow */
+    float: right;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active::after {
+    transform: rotate(90deg); /* Rotate arrow when active/open */
+}
+
+.sidebar .profile {
+    padding: 20px;
+    text-align: center;
+    margin-top: auto; /* Pushes profile to the bottom */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .profile .profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: 10px;
+    background-color: var(--light-text);
+}
+
+/* Apply default white color only to top-level sidebar links */
+.sidebar > ul.main-nav > li > a {
+    color: var(--light-text);
+    text-decoration: none;
+}
+
+/* Override dropdown default (black text on white background) */
+.dropdown-menu .dropdown-item {
+    color: #000 !important;
+    background-color: #fff;
+    padding-left: 45px;
+    text-decoration: none;
+}
+
+/* MODIFIED: Updated dropdown menu item hover - red text on white background */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item.active {
+    background-color: #fff !important; /* White background */
+    color: var(--top-bar-red) !important; /* Red text */
+}
+
+.main-area {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    height: 118px;
+    background-color: var(--top-bar-red); /* Changed to use the red color variable */
+    width: 100%;
+    display: flex; /* Added flex display for content alignment */
+    align-items: center; /* Center content vertically */
+    padding: 0 20px; /* Added horizontal padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #fff;
+    overflow-y: auto;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Assuming you want shadow on this main content area */
+    border-radius: 8px; /* Assuming you want rounded corners */
+    margin: 20px; /* Space around the main content */
+}
+
+.header {
+    background-color: #f8f9fa; /* Changed to light gray background */
+    color: #333; /* Changed to dark text */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0; /* Removed rounded corners */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #dee2e6; /* Added subtle border */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #000000; /* Ensure header text is dark */
+}
+
+.header .profile-header {
+    display: flex;
+    align-items: center;
+    color: #000000; /* Ensure profile header text is dark */
+}
+
+.header .profile-header img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+/* Feedback Form Specific Styles */
+.feedback-container {
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 0.5px;
+    box-shadow: 10px 100px 100px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0px auto; /* Center the form container */
+    text-align: left;
+}
+
+.feedback-container h2 {
+    color: var(--dark-background);
+    text-align: center;
+    margin-bottom: 2px;
+}
+
+.feedback-container p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.feedback-form .form-group {
+    margin-bottom: 40px; /* Increased margin for better spacing */
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 14px; /* Increased margin for labels */
+    font-weight: bold;
+    color: #000000;
+    font-size: 14px;
+}
+
+.feedback-form input[type="text"],
+.feedback-form input[type="email"],
+.feedback-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.feedback-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.feedback-form .radio-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for many options */
+    gap: 40px; /* Space between radio options */
+    margin-top: 10px;
+}
+
+.feedback-form .radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal; /* Labels for radio buttons don't need to be bold */
+    margin-bottom: 0; /* Reset label margin for inline radios */
+    color: #323131;
+}
+
+.feedback-form .radio-group input[type="radio"] {
+    margin-right: 5px;
+    width: auto; /* Allow radios to be natural size */
+}
+
+.feedback-form .submit-button {
+    display: block;
+    width: 160px;
+    padding: 9px 9px;
+    background-color: #3c8dbc;
+    color: var(--light-text);
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.feedback-form .submit-button:hover {
+    background-color: #2d688a
+}
+
+/* Button on My Result page (also used for general buttons like 'Go to Home') */
+.feedback-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--primary-red);
+    color: var(--light-text);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-button:hover {
+    background-color: var(--active-bg);
+    transform: translateY(-2px);
+}
+
+/* Table styles (if any on this page, otherwise remove) */
+/* This section is generic table style, which might be in a separate file too.
+   Keeping it here if this is your single, combined CSS for feedback_form.html. */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th,
+table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f8f8f8;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+table select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Result specific styling (not directly used on feedback form but might be in a combined file) */
+.result-summary {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 30px auto;
+    text-align: left;
+}
+
+.result-summary h2 {
+    color: var(--dark-background);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-item span:first-child {
+    font-weight: bold;
+    color: #555;
+}
+
+.result-item span:last-child {
+    color: #333;
+}
+
+.result-footer {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.result-footer .pass {
+    color: #28a745; /* Green for pass */
+}
+
+.result-footer .fail {
+    color: #dc3545; /* Red for fail */
+}

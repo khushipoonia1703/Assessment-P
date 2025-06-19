@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Your Feedback</title>
+    <!-- Ensure this links to your main CSS file that contains the layout-container and sidebar styles -->
+    <link rel="stylesheet" href="./view_feedback.css" />
+</head>
+<body>
+    <!-- Overall layout container for sidebar and main content -->
+    <div class="layout-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="logo">
+                <img src="./logo.png" width="200" height="50" alt="Logo" />
+            </div>
+            <ul class="main-nav">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" role="button" aria-expanded="false">
+                        Assessment
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="./configure.html">Configure Test</a>
+                        <a class="dropdown-item" href="./apply.html">Take Test</a>
+                        <a class="dropdown-item" href="./my_result.html">My Result</a>
+                        <a class="dropdown-item" href="./all_results.html">All Result</a>
+                        <a class="dropdown-item" href="./feedback_form.html">Feedback</a>
+                        <!-- Set 'View Feedback' as active -->
+                        <a class="dropdown-item active" href="./view_feedback.html">View Feedback</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Area for Top Bar and Content -->
+        <div class="main-area">
+            <!-- Top Bar Section -->
+            <div class="top-bar">
+                <!-- Content for the top bar can go here, e.g., a simple title or quick actions -->
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="main-content">
+                <div class="header">
+                    <h1> Submitted Feedbacks</h1>
+                </div>
+
+                <div class="feedback-display-container" style="padding: 20px">
+                    
+                    <div class="table-container">
+                        <h2>User Feedback Submissions</h2>
+                        <table class="feedback-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Phone Number</th>
+                                    <th>Email</th>
+                                    <th>Feedback</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>98xxxxxxx</td>
+                                    <td>abc@example.com</td>
+                                    <td><a href="./feedback_details.html" class="view-btn">View</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>91xxxxxxxx</td>
+                                    <td>abc@example.com</td>
+                                    <td><a href="./feedback_details.html" class="view-btn">View</a></td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>
+                        <a href="./index.html" class="feedback-button" style="margin-left: 10px">Go to Home</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

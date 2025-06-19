@@ -1,0 +1,509 @@
+:root {
+  --dark-background: #2c3e50;
+  --light-text: #ecf0f1;
+  --grey-text: #bdc3c7;
+  --active-bg: #dc3545; /* A darker red for active states */
+  --sidebar-gray: #808080; /* Gray color for sidebar background */
+  --sidebar-dark-gray: #495057; /* Darker gray for hover states */
+  --top-bar-red: #dc3545; /* Red color for top bar */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+.sidebar {
+  width: 200px;
+  background-color: var(
+    --sidebar-gray
+  ); /* Changed from var(--primary-red) to gray */
+  color: var(--light-text);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  padding: 0;
+  margin-top: -21px;
+}
+
+.sidebar .logo img {
+  border-radius: 0%;
+  object-fit: cover;
+  background-color: var(--light-text);
+}
+
+.sidebar .main-nav {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1; /* Allows nav to take available space */
+}
+
+.sidebar .main-nav li {
+  position: relative; /* For dropdown positioning */
+}
+
+/* Base style for ALL clickable nav items (direct links, dropdown toggles, dropdown items) */
+.sidebar .main-nav .nav-item,
+.sidebar .main-nav .nav-link,
+.sidebar .main-nav .dropdown-item {
+  display: block;
+  padding: 15px 20px; /* Base padding */
+  color: var(--light-text);
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-left-color 0.3s ease; /* Added border-left-color to transition */
+  border-left: 5px solid transparent; /* Consistent space for border */
+}
+
+/* MODIFIED: Updated hover effects - Assessment gets red background on hover */
+.sidebar .main-nav .nav-item:hover,
+.sidebar .main-nav .nav-link:hover {
+  background-color: var(--top-bar-red);
+  color: var(--light-text); /* Keep text white */
+}
+
+/* MODIFIED: Separate hover for dropdown items - red text, white background */
+.sidebar .main-nav .dropdown-item:hover {
+  background-color: #fff !important; /* Keep white background */
+  color: var(--top-bar-red) !important; /* Red text color */
+}
+
+/* MODIFIED: Updated active state to use darker gray background */
+.sidebar .main-nav .nav-item.active {
+  background-color: var(--sidebar-dark-gray);
+  font-weight: bold;
+  border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* MODIFIED: Updated dropdown toggle active state - red background when toggled */
+.sidebar .main-nav .dropdown-toggle.active {
+  background-color: var(
+    --top-bar-red
+  ); /* Red background when dropdown is open */
+  font-weight: bold;
+  border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Active state for dropdown menu items (e.g., My Result, All Result) */
+.sidebar .main-nav .dropdown-item.active {
+  background-color: var(
+    --top-bar-red
+  ); /* Darker background for active sub-item */
+  font-weight: bold;
+  border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Dropdown specific styles */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  background-color: #ffffff; /* Same as sidebar for seamless look */
+  padding: 0; /* Remove default list padding */
+  list-style: none;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu.show {
+  display: block; /* Shown when 'show' class is added by JS */
+}
+
+/* Indent dropdown items more. This padding is in *addition* to the 20px base + 5px transparent border */
+.dropdown-menu .dropdown-item {
+  padding-left: 45px; /* (20px base + 5px border) + 20px extra indent = 45px total */
+  color: #000; /* Lighter text for dropdown items */
+  background-color: #fff;
+}
+
+/* Basic arrow styling for dropdown toggles */
+.dropdown-toggle::after {
+  content: "▶"; /* Right-pointing arrow */
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active::after {
+  transform: rotate(90deg); /* Rotate arrow when active/open */
+}
+
+.sidebar .profile {
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Pushes profile to the bottom */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .profile .profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 10px;
+  background-color: var(--light-text);
+}
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.hire-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 240px;
+}
+
+.form-box {
+  max-width: 600px;
+  width: 100%;
+  padding: 10px 50px;
+  /* background: rgb(242, 237, 237); */
+  background: #ffffff;
+  border: 2px;;
+  box-shadow: 0 40px 40px rgba(105, 101, 101, 0.1);
+  border-radius: 0.5rem;
+} 
+
+.form-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 200;
+  margin-bottom: 2rem;
+  color: #000000;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+}
+
+
+.form-text-note {
+    font-size: 0.85rem;
+    color: #666;
+    margin-top: 5px;
+    display: block; /* Ensure it's on its own line */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.form-group label {
+  flex: 1;
+  min-width: 90px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.form-group select {
+  flex: 20;
+  padding: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5rem;
+  margin-top: 0.5rem;
+  padding: 20px 190px;
+}
+
+.clear-btn,
+.submit-btn {
+  width: 5rem;
+  padding: 10px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  font: helvetica;
+}
+
+.clear-btn {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+.submit-btn {
+  background-color: #3c8dbc;
+  color: #fff;
+}
+
+.submit-btn:hover {
+  background-color: #2d688a;
+}
+
+.clear-btn:hover {
+  background-color: #a6aaac;
+}
+
+.show-result-section {
+  margin-top: 0.1rem;
+  padding: 9px;
+  border-radius: 10px;
+  border-color: #807979;
+}
+
+.result-label {
+  font-size: 14px;
+}
+
+.radio-options {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.radio-label {
+  position: relative;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 2;
+  gap: 0.5rem;
+  margin-left: 10px; /* This aligns with other input boxes */
+}
+
+
+/* Hide native radio */
+.radio-label input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Style the span as the visible radio */
+.radio-label-marker {
+  position: relative;
+  margin-top: 20px;
+  padding-left: 20px;
+}
+
+/* Draw the custom radio */
+.radio-label-marker::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: background-color 0.2s ease;
+}
+
+/* Fill the circle when checked */
+.radio-label input[type="radio"]:checked + .radio-label-marker::before {
+  background-color: #000;
+}
+
+.question-input {
+  width: 50px;
+  padding: 5px;
+  font-size: 1em;
+  margin-left: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  flex: 1;
+  min-width: 90px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.form-row input,
+.form-row select {
+  flex: 2;
+  padding: 10px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.1rem;
+}
+
+/* Wrapper holding Objective + Subjective side-by-side (or stacked on smaller screens) */
+.question-type-wrapper {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Each group (Objective / Subjective) styling */
+.question-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Label inside each question group */
+.sub-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Row containing the select dropdown + number input */
+.question-select-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Style the dropdown */
+.question-select {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the number input next to dropdown */
+.question-count {
+  width: 120px;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.experience-field-wrapper {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.experience-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem; /* adjust space between year/month fields */
+}
+
+.experience-inputs input {
+  width: 60px;
+  padding: 6px;
+  font-size: 0.85rem;
+}
+
+.question-select-section {
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.question-select-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.question-select-row label {
+  flex: 1;
+}
+
+.question-dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.question-dropdown:hover {
+  background-color: #f5f5f5;
+}
+
+.question-dropdown .arrow {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.question-content {
+  border: 1px solid #ccc;
+  padding: 0.7rem;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-item label {
+  flex: 1;
+  font-weight: normal;
+}
+
+.question-count {
+  width: 60px !important;
+  padding: 6px;
+  font-size: 0.9rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+

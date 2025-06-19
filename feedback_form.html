@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <!-- Link to your main stylesheet (style.css, which defines layout-container, sidebar, main-area, top-bar etc.) -->
+    <link rel="stylesheet" href="./feedback_form.css">
+</head>
+<body>
+    <div class="layout-container">
+      <div class="sidebar">
+        <div class="logo">
+          <img src="/logo.png" width="200" height="50" alt="Logo" />
+        </div>
+        <ul class="main-nav">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Assessment</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="./RPconfigure.html"
+                >Configure Test</a
+              >
+              <a class="dropdown-item" href="./HPapply.html">Take Test</a>
+              <a class="dropdown-item" href="./my_result.html">My Result</a>
+              <a class="dropdown-item" href="./all_results.html">All Results</a>
+              <a class="dropdown-item" href="./feedback_form.html"
+                >Give Feedback</a
+              >
+              <a class="dropdown-item" href="./view_feedback.html"
+                >View Feedback</a
+              >
+            </div>
+          </li>
+        </ul>
+
+        <div class="profile">
+          <span id="user-name">Guest</span>
+          <img src="/profile logo.avif" alt="Profile" class="profile-pic" />
+        </div>
+      </div>
+
+      <div class="main-area">
+        <div class="top-bar"></div>
+        <div class="main-content">
+          
+        
+        <div class="feedback-container">
+          <h2>Your Feedback is Valuable!</h2>
+            <p>Please share your thoughts and suggestions below.</p>
+            <form class="feedback-form" action="./thank_you_appreciation.html" method="get">
+              <div class="form-group">
+                <label>How would you rate your overall experience with the online exam?</label>
+                <div class="radio-group" id="overallExperienceGroup">
+                  <label><input type="radio" name="overall_experience" value="Excellent" required> Excellent</label>
+                  <label><input type="radio" name="overall_experience" value="Good"> Good</label>
+                  <label><input type="radio" name="overall_experience" value="Average"> Average</label>
+                  <label><input type="radio" name="overall_experience" value="Poor"> Poor</label>
+                  <label><input type="radio" name="overall_experience" value="Very Poor"> Very Poor</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Was the exam interface easy to navigate and understand?</label>
+                <div class="radio-group" id="interfaceEasyGroup">
+                  <label><input type="radio" name="interface_easy" value="Yes" id="interfaceYes" required> Yes</label>
+                  <label><input type="radio" name="interface_easy" value="No" id="interfaceNo"> No</label>
+                </div>
+                <textarea name="interface_comment" id="interfaceCommentBox" rows="3" placeholder="(Optional comment box)" style="margin-top: 10px; display: none;"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Were the instructions provided before the exam clear and helpful?</label>
+                <div class="radio-group" id="instructionsClearGroup">
+                                <label><input type="radio" name="instructions_clear" value="Yes" id="instructionsYes" required> Yes</label>
+                                <label><input type="radio" name="instructions_clear" value="No" id="instructionsNo"> No</label>
+                                <label><input type="radio" name="instructions_clear" value="Somewhat" id="instructionsSomewhat"> Somewhat</label>
+                            </div>
+                            <textarea name="instructions_comment" id="instructionsCommentBox" rows="3" placeholder="(Optional comment box)" style="margin-top: 10px; display: none;"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Did you encounter any technical issues during the exam?</label>
+                            <div class="radio-group" id="technicalIssuesGroup">
+                                <label><input type="radio" name="technical_issues" value="Yes" id="technicalYes" required> Yes</label>
+                                <label><input type="radio" name="technical_issues" value="No" id="technicalNo"> No</label>
+                            </div>
+                            <textarea name="technical_issues_description" id="technicalIssuesCommentBox" rows="3" placeholder="If yes, please describe briefly:" style="margin-top: 10px; display: none;"></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Was the time allotted sufficient to complete all questions?</label>
+                            <div class="radio-group" id="timeSufficientGroup">
+                                <label><input type="radio" name="time_sufficient" value="More than enough" required> More than enough</label>
+                                <label><input type="radio" name="time_sufficient" value="Just enough"> Just enough</label>
+                                <label><input type="radio" name="time_sufficient" value="Not enough"> Not enough</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Were the questions relevant and aligned with your expectations?</label>
+                            <div class="radio-group" id="questionsRelevantGroup">
+                                <label><input type="radio" name="questions_relevant" value="Strongly Agree" required> Strongly Agree</label>
+                                <label><input type="radio" name="questions_relevant" value="Agree"> Agree</label>
+                                <label><input type="radio" name="questions_relevant" value="Neutral"> Neutral</label>
+                                <label><input type="radio" name="questions_relevant" value="Disagree"> Disagree</label>
+                                <label><input type="radio" name="questions_relevant" value="Strongly Disagree"> Strongly Disagree</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>How would you rate the difficulty level of the exam?</label>
+                            <div class="radio-group" id="difficultyLevelGroup">
+                                <label><input type="radio" name="difficulty_level" value="Too easy" required> Too easy</label>
+                                <label><input type="radio" name="difficulty_level" value="Easy"> Easy</label>
+                                <label><input type="radio" name="difficulty_level" value="Moderate"> Moderate</label>
+                                <label><input type="radio" name="difficulty_level" value="Difficult"> Difficult</label>
+                                <label><input type="radio" name="difficulty_level" value="Very difficult"> Very difficult</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>How confident are you in your performance?</label>
+                            <div class="radio-group" id="confidenceGroup">
+                                <label><input type="radio" name="confidence" value="Very confident" required> Very confident</label>
+                                <label><input type="radio" name="confidence" value="Confident"> Confident</label>
+                                <label><input type="radio" name="confidence" value="Neutral"> Neutral</label>
+                                <label><input type="radio" name="confidence" value="Not confident"> Not confident</label>
+                                <label><input type="radio" name="confidence" value="Very unconfident"> Very unconfident</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Do you feel the exam was fair and unbiased?</label>
+                            <div class="radio-group" id="fairnessGroup">
+                                <label><input type="radio" name="fairness" value="Yes" required> Yes</label>
+                                <label><input type="radio" name="fairness" value="No"> No</label>
+                                <label><input type="radio" name="fairness" value="Not sure"> Not sure</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="suggestions">Any suggestions or feedback to improve the exam experience?</label>
+                            <textarea id="suggestions" name="suggestions" rows="1"></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Submit Feedback</button>
+                    </form>
+                </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+

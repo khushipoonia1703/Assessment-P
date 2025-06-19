@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Submitted Feedback Details</title>
+    <link rel="stylesheet" href="./user_feedback.css">
+</head>
+<body>
+    <div class="layout-container">
+      <div class="sidebar">
+        <div class="logo">
+          <img src="/logo.png" width="200" height="50" alt="Logo" />
+        </div>
+        <ul class="main-nav">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Assessment</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="./RPconfigure.html"
+                >Configure Test</a
+              >
+              <a class="dropdown-item" href="./HPapply.html">Take Test</a>
+              <a class="dropdown-item" href="./my_result.html">My Result</a>
+              <a class="dropdown-item" href="./all_results.html">All Results</a>
+              <a class="dropdown-item" href="./feedback_form.html"
+                >Give Feedback</a
+              >
+              <a class="dropdown-item" href="./view_feedback.html"
+                >View Feedback</a
+              >
+            </div>
+          </li>
+        </ul>
+
+        <div class="profile">
+          <span id="user-name">Guest</span>
+          <img src="" alt="Profile" class="profile-pic" />
+        </div>
+      </div>
+
+      <div class="main-area">
+        <div class="top-bar"></div>
+        <div class="main-content">
+          <div class="header">
+            <h1>Welcome to the Dashboard!</h1>
+            <div class="profile-header">
+              <span>Hello, <span id="user-name-header">User</span></span>
+              <img src="/profile logo.avif" alt="Profile" />
+            </div>
+          </div>
+        
+
+
+        <div class="feedback-display-container" style="padding: 20px;">
+            <h2 style="text-align: center;">Submitted Feedback Information</h2>
+            
+            <div id="feedbackDetails" style="border: 1px solid #ccc; padding: 15px; margin-top: 20px; background-color: #f9f9f9; border-radius: 8px;">
+                <p><strong>Overall Experience:</strong> <span id="displayOverallExperience"></span></p>
+                <p><strong>Interface Easy:</strong> <span id="displayInterfaceEasy"></span></p>
+                <p id="interfaceCommentParagraph"><strong>Interface Comment:</strong> <span id="displayInterfaceComment"></span></p>
+                <p><strong>Instructions Clear:</strong> <span id="displayInstructionsClear"></span></p>
+                <p id="instructionsCommentParagraph"><strong>Instructions Comment:</strong> <span id="displayInstructionsComment"></span></p>
+                <p><strong>Technical Issues:</strong> <span id="displayTechnicalIssues"></span></p>
+                <p id="technicalIssuesDescriptionParagraph"><strong>Technical Issues Description:</strong> <span id="displayTechnicalIssuesDescription"></span></p>
+                <p><strong>Time Allotted Sufficient:</strong> <span id="displayTimeSufficient"></span></p>
+                <p><strong>Questions Relevant:</strong> <span id="displayQuestionsRelevant"></span></p>
+                <p><strong>Difficulty Level:</strong> <span id="displayDifficultyLevel"></span></p>
+                <p><strong>Confidence:</strong> <span id="displayConfidence"></span></p>
+                <p><strong>Fairness:</strong> <span id="displayFairness"></span></p>
+                <p id="suggestionsParagraph"><strong>Suggestions:</strong> <span id="displaySuggestions"></span></p>
+            </div>
+
+            <p style="margin-top: 30px; text-align: center;">
+                <a href="./feedback_form.html" class="feedback-button" style="margin-right: 10px;">Submit New Feedback</a>
+                <a href="./index.html" class="feedback-button">Go to Home</a>
+            </p>
+        </div>
+    </div>
+    </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // This script populates the fields with example data based on the provided image,
+        // and conditionally hides comment fields if no comment is provided.
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hardcoded example data based on the provided image
+            const feedbackData = {
+                overall_experience: 'Excellent',
+                interface_easy: 'Yes',
+                interface_comment: '', // No comment visible in image
+                instructions_clear: 'Yes',
+                instructions_comment: '', // No comment visible in image
+                technical_issues: 'No',
+                technical_issues_description: '', // No description visible in image
+                time_sufficient: 'More than enough',
+                questions_relevant: 'Strongly Agree',
+                difficulty_level: 'Moderate',
+                confidence: 'Very confident',
+                fairness: 'Yes',
+                suggestions: '' // No suggestions visible in image
+            };
+
+            // Function to set text content and hide parent paragraph if empty or default
+            function displayField(elementId, paragraphId, value, defaultValue = '') {
+                const element = document.getElementById(elementId);
+                const paragraph = document.getElementById(paragraphId);
+                if (element) {
+                    if (value && value.trim() !== '' && value.trim().toLowerCase() !== defaultValue.toLowerCase()) {
+                        element.textContent = value;
+                        if (paragraph) paragraph.style.display = ''; // Ensure it's visible
+                    } else {
+                        if (paragraph) paragraph.style.display = 'none'; // Hide the whole paragraph
+                    }
+                }
+            }
+
+            // Populate static fields
+            document.getElementById('displayOverallExperience').textContent = feedbackData.overall_experience;
+            document.getElementById('displayInterfaceEasy').textContent = feedbackData.interface_easy;
+            document.getElementById('displayInstructionsClear').textContent = feedbackData.instructions_clear;
+            document.getElementById('displayTechnicalIssues').textContent = feedbackData.technical_issues;
+            document.getElementById('displayTimeSufficient').textContent = feedbackData.time_sufficient;
+            document.getElementById('displayQuestionsRelevant').textContent = feedbackData.questions_relevant;
+            document.getElementById('displayDifficultyLevel').textContent = feedbackData.difficulty_level;
+            document.getElementById('displayConfidence').textContent = feedbackData.confidence;
+            document.getElementById('displayFairness').textContent = feedbackData.fairness;
+
+            // Conditionally display comment fields
+            displayField('displayInterfaceComment', 'interfaceCommentParagraph', feedbackData.interface_comment, 'No comment provided');
+            displayField('displayInstructionsComment', 'instructionsCommentParagraph', feedbackData.instructions_comment, 'No comment provided');
+            displayField('displayTechnicalIssuesDescription', 'technicalIssuesDescriptionParagraph', feedbackData.technical_issues_description, 'No description provided');
+            displayField('displaySuggestions', 'suggestionsParagraph', feedbackData.suggestions, 'No suggestions provided');
+
+            // Note: For a real application, you would typically retrieve feedbackData from:
+            // 1. URL parameters (if form method="get")
+            // 2. A backend API call (e.g., using fetch() to retrieve from a database)
+            // This example uses hardcoded data to demonstrate the "filled" look.
+        });
+    </script>
+</body>
+</html>
