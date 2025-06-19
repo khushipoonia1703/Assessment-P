@@ -240,24 +240,28 @@ body {
 /* Form Groups */
 .form-group {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   margin-bottom: 1rem;
   font-size: 14px;
 }
 
 .form-group label {
-  width: 150px;
-  text-align: right;
-  margin-right: 15px;
-  color: #555;
+  flex:1;
+  min-width: 130px;
+  margin-right: 10px;
+  text-align: left;
+  color: #333;
   font-size: 14px; /* ✅ Label font size */
+  font-weight: bold;
 }
 
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
 .form-group input[type="number"] {
-  width: 250px;
+  flex: 2;
+  max-width: 400px;
   padding: 0.6rem;
   font-size: 14px; /* ✅ Input font size */
   border: 1px solid #ccc;
@@ -289,7 +293,7 @@ body {
 
 .inline-label {
   font-size: 14px;
-  color: #555;
+  color: #2b2a2a;
 }
 
 .freshers-note {
@@ -309,17 +313,17 @@ body {
 .headshot-section h3 {
   color: var(--dark-background);
   margin-bottom: 15px;
-  font-size:18px;
+  font-size:14px;
 }
 
 .video-container {
   position: relative;
-  border: 2px dashed var(--border-color);
+  border: 20px dashed var(--border-color);
   background: #edf2f7;
   overflow: hidden;
   border-radius: 10px;
-  width: 280px;
-  height: 280px;
+  width: 220px;
+  height: 210px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -383,42 +387,11 @@ html, body {
 
 /* h2 font size */
 h2, .main-content h2 {
-    font-size: 18px;
+    font-size: 6px;
 }
 .error-text.hidden {
   display: none;
 }
-.form-group {
-  display: flex;
-  align-items: center;
-  margin-bottom: 1rem;
-  font-size: 14px;
-  color: var(--light-text); /* for better visibility on dark backgrounds */
-}
-
-.form-group label {
-  width: 130px;
-  margin-right: 10px;
-  text-align: right;
-  color: #333; /* or use #000 for full black, #555 for medium-dark */
-  font-weight: 500;
-}
-
-
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group input[type="tel"],
-.form-group input[type="number"] {
-  flex: 1;
-  padding: 0.4rem 0.6rem;
-  font-size: 14px;
-  border: 1px solid #fff;
-  background-color: transparent;
-  color: #200b0b;
-  border-radius: 4px;
-  outline: none;
-}
-
 /* Special styling for experience group */
 .experience-group {
   flex-direction: column;
@@ -437,53 +410,57 @@ h2, .main-content h2 {
   text-align: center;
 }
 
-/* Submit button alignment */
-.submit-btn {
-  display: block;
-  margin: 1.5rem auto 0 auto;
-  padding: 0.6rem 2rem;
-  font-size: 1rem;
-  border: 2px solid #fff;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
 
-
-.form-group input[type="text"],
+/* .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="tel"],
 .form-group input[type="number"] {
-  color: #000; /* black input text */
-  border: 1px solid #ccc; /* light grey border */
-  background-color: #fff; /* white input background */
-}
+  color: #000; 
+  border: 1px solid #ccc; 
+  background-color: #fff; 
+} */
 :root {
     --hover-bg: #b52b1f; /* 🔴 Custom hover color: darker red */
 }
-.capture-btn:hover,
-.submit-btn:hover {
-    background-color: #b52b1f; /* 🔴 New hover color */
-}
-.capture-btn,
-.submit-btn {
+
+.capture-btn {
     display: block;
-    margin: 1rem auto;
-    padding: 0.6rem 1.5rem;
-    background-color: var(--primary-red);
+    margin: 0.8rem auto;
+    padding: 0.5rem 1.1rem;
+    background-color: #3c8dbc;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 0;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+.submit-btn {
+    display: block;
+    margin: 2rem auto;
+    padding: 0.5rem 1.1rem;
+    background-color: #3c8dbc;
+    color: white;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    font-size: 14px;
     transition: background-color 0.2s;
 }
 
 /* 🔁 Updated hover effect */
 .capture-btn:hover,
 .submit-btn:hover {
-    background-color: #b52b1f; /* Custom red on hover */
+    background-color: #2d688a; /* Custom red on hover */
 }
+
+.form-group select {
+  flex: 2;
+  max-width: 400px;
+  padding: 0.6rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
 
