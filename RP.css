@@ -60,6 +60,7 @@ body {
   text-decoration: none;
   transition: background-color 0.3s ease, border-left-color 0.3s ease; /* Added border-left-color to transition */
   border-left: 5px solid transparent; /* Consistent space for border */
+  font-size: 14px;
 }
 
 /* MODIFIED: Updated hover effects - Assessment gets red background on hover */
@@ -171,7 +172,7 @@ body {
 
 .header h1 {
   margin: 0;
-  font-size: 24px;
+  font-size: 20px;
   color: #333; /* Ensure header text is dark */
 }
 
