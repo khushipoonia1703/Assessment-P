@@ -9,7 +9,7 @@
 <body>
     <div class="layout-container">
         <!-- Sidebar Navigation -->
-        <div class="sidebar">
+        <!-- <div class="sidebar">
             <div class="logo">
                 <img src="/logo.png" width="200" height="50" alt="Logo" />
             </div>
@@ -26,15 +26,11 @@
                     </div>
                 </li>
             </ul>
-            
-        </div>
+        </div> -->
 
         <!-- Main Area -->
         <div class="main-area">
             <div class="top-bar"></div>
-
-            
-                
 
                 <!-- Main Application Content -->
                 <div class="apply-container">
@@ -86,14 +82,22 @@
                                     <input type="number" id="experienceMonths" name="experience_months" min="0" max="11" value="0" required>
                                     <span class="inline-label">Months</span>
                                 </div>
-                                <p class="freshers-note">If you are a fresher, please enter 0 for both years and months.</p>
                                 <div id="experienceError" class="error-text hidden">Negative number is not allowed.</div>
                             </div>
 
                             <div class="form-group">
                                 <label for="state">State :</label>
-                                <input type="text" id="state" name="state" required />
-                            </div>
+                                <select id="state" name="state" required>
+                                    <option value="">Select State</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                </select>
+                                </div>
+
 
 
                             <button type="submit" class="submit-btn">Start Interview</button>
