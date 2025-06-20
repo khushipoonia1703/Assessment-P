@@ -151,6 +151,19 @@ body {
   min-height: 100vh;
 }
 
+/* MODIFIED: Updated top-bar styling to match screenshot's red header */
+.top-bar {
+  height: 50px;
+  background-color: var(
+    --top-bar-red
+  ); /* Changed to use the red color variable */
+  width: 100%;
+  display: flex; /* Added flex display for content alignment */
+  align-items: center; /* Center content vertically */
+  padding: 0 20px; /* Added horizontal padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
 .hire-container {
   display: flex;
   justify-content: center;
