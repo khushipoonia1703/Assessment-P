@@ -136,3 +136,72 @@ navigator.mediaDevices.getUserMedia({ video: true })
   .catch(() => alert("Unable to access camera."));
 
 renderQuestion();
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Show Modal
+  function openModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+
+  // Hide Modal
+  function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+
+  // Trigger modals
+  document.getElementById('end-test-btn').onclick = () => {
+    openModal('endTestModal');
+  };
+
+  document.getElementById('submit-test-btn').onclick = () => {
+    openModal('submitTestModal');
+  };
+
+  // After submit, open end test modal
+  document.getElementById('confirmSubmit').onclick = () => {
+    closeModal('submitTestModal');
+    openModal('endTestModal'); // Chained to end test
+  };
+
+  // Final confirmation
+  document.getElementById('confirmEnd').onclick = () => {
+    window.location.href = "endtest.html"; // Redirect to final page
+  };
+
+  // Assign modal functions to window for cancel buttons
+  window.closeModal = closeModal;
+});
+
+let switchCount = 0;
+
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    switchCount++;
+
+    if (switchCount < 4) {
+      showTabSwitchWarning(switchCount);
+    } else {
+      // Redirect to disqualified page
+      window.location.href = "disqualified.html";
+    }
+  }
+});
+
+function showTabSwitchWarning(count) {
+  const warningModal = document.createElement('div');
+  warningModal.classList.add('modal');
+  warningModal.innerHTML = `
+    <div class="modal-content">
+      <p><strong>Warning ${count}/3:</strong> Tab switching is not allowed! After 3 warnings you will be disqualified.</p>
+      <button onclick="this.parentElement.parentElement.classList.add('hidden')">OK</button>
+    </div>
+  `;
+  document.body.appendChild(warningModal);
+
+  // Optional: auto-remove modal after 5 seconds
+  setTimeout(() => {
+    if (warningModal && warningModal.parentNode) {
+      warningModal.classList.add('hidden');
+    }
+  }, 5000);
+}
