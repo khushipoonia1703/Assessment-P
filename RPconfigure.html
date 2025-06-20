@@ -230,7 +230,7 @@
               <button type="button" class="clear-btn" onclick="clearForm()">
                 Clear Configuration
               </button>
-              <button type="submit" class="submit-btn">Save</button>
+              <button type="submit" class="submit-btn" href="./summary.html">Save </button>
             </div>
           </form>
         </div>
@@ -238,20 +238,20 @@
     </div>  
 
     <script>
-  // Sidebar dropdown toggle logic
-  document.addEventListener("DOMContentLoaded", function () {
-    const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+    // Sidebar dropdown toggle logic
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
 
-    dropdownToggles.forEach(toggle => {
-      toggle.addEventListener("click", function (e) {
-        e.preventDefault();
-        const menu = this.nextElementSibling;
-        menu.classList.toggle("show");
-        this.classList.toggle("active");
+        dropdownToggles.forEach(toggle => {
+          toggle.addEventListener("click", function (e) {
+            e.preventDefault();
+            const menu = this.nextElementSibling;
+            menu.classList.toggle("show");
+            this.classList.toggle("active");
+          });
+        });
       });
-    });
-  });
-</script>
+    </script>
 
 
 
