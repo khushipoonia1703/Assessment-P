@@ -118,8 +118,8 @@ body {
 /* Indent dropdown items more. This padding is in *addition* to the 20px base + 5px transparent border */
 .dropdown-menu .dropdown-item {
   padding-left: 45px; /* (20px base + 5px border) + 20px extra indent = 45px total */
-  color: #000; /* Lighter text for dropdown items */
-  background-color: #fff;
+  color: #000000; /* Lighter text for dropdown items */
+  background-color: #e3d8d8;
 }
 
 /* Basic arrow styling for dropdown toggles */
