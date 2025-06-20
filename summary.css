@@ -15,14 +15,6 @@ body {
   background-color: #f4f4f4;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-}
-
 .sidebar {
   width: 200px;
   background-color: var(
@@ -164,37 +156,17 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
-}
-
-.main-area {
-  flex-grow: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;  /* ✅ Prevent horizontal scroll */
-}
-
-/* MODIFIED: Updated top-bar styling to match screenshot's red header */
-.top-bar {
-  height: 50px;
-  background-color: var(
-    --top-bar-red
-  ); /* Changed to use the red color variable */
-  width: 100%;
-  display: flex; /* Added flex display for content alignment */
-  align-items: center; /* Center content vertically */
-  padding: 0 20px; /* Added horizontal padding */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+  padding: 2rem;
 }
 
 .summary-container {
   flex-grow: 1;
   background: white;
-  padding: 1rem;
+  padding: 2rem;
+  border-radius: 0;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   overflow-y: auto;
-  overflow-x: auto;;
-  margin: 10px;
+  margin: 20px;
   max-height: calc(100vh - 70px); /* full screen height minus top bar */
   width: 100%;
 }
@@ -209,15 +181,14 @@ h2 {
 .config-table {
   width: 100%;
   border-collapse: collapse;
-  padding: 20px;
-  min-width: 1000px;
+  padding: 20px;;
 }
 
 .config-table th {
   border: 1px solid #ddd;
   padding: 8px 15px;
   text-align: center;
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 200;
 }
 
@@ -237,7 +208,7 @@ h2 {
 .config-table th {
   background-color: #848182;
   color: white;
-  font-size: 12px;
+  font-size: 16px;
 
 }
 
@@ -300,80 +271,3 @@ h2 {
 .view-dropdown-menu.hidden {
   display: none;
 }
-
-/* ✅ Updated Heading */
-.summary-heading {
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-  margin: 20px 0 0 0;
-  padding-top: 20px;
-}
-
-/* ✅ Controls wrapper */
-.table-controls {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.top-control-row {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.bottom-control-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* 🔵 Left part - Show entries + Capture Button */
-.left-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 14px;
-  color: #333;
-}
-
-.entries-select {
-  padding: 5px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-/* Capture Button Styling (already in your CSS, repeating for clarity) */
-.capture-btn {
-  background-color: #3c8dbc;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  font-size: 14px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.capture-btn:hover {
-  background-color: #2d688a;
-}
-
-/* 🔍 Right part - Search box */
-.right-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 14px;
-}
-
-.search-input {
-  padding: 5px 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
