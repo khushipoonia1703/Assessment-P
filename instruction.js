@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Please confirm you have read the instructions.");
     } else {
       // Replace with your redirection or exam start logic
-      window.location.href = "exam.html";
+      window.location.href = "assessment.html";
     }
   });
 });
