@@ -1,17 +1,20 @@
 /* =================== assessment.css =================== */
-:root{
+:root {
   --light-text: #ecf0f1;
 }
+
+/* Global Styles */
 body {
   margin: 0;
   font-family: sans-serif;
 }
 
+/* Header Styles */
 .header {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
-  background-color: #f5f5f5;
+  padding: 10px px;
+  background-color: #e62c40;
   border-bottom: 1px solid #ccc;
 }
 
@@ -26,11 +29,13 @@ body {
   font-weight: bold;
 }
 
+/* Layout */
 .main-layout {
   display: flex;
   height: calc(100vh - 50px);
 }
 
+/* =================== LEFT PANEL =================== */
 .left-panel {
   flex: 3;
   padding: 20px;
@@ -44,7 +49,6 @@ body {
   padding: 10px;
   width: fit-content;
   border-radius: 8px;
-  margin-bottom: 15px;
   font-weight: bold;
   margin-bottom: 30px;
 }
@@ -52,7 +56,6 @@ body {
 .question-block {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
   margin-bottom: 30px;
 }
 
@@ -65,9 +68,10 @@ body {
   flex: 1;
 }
 
+/* Answer Area */
 #answer {
   width: 100%;
-  height: 220px;
+  height: 220px; /* Taller vertically */
   margin-bottom: 20px;
   padding: 10px;
   font-size: 1rem;
@@ -75,43 +79,35 @@ body {
   border: 1px solid #ccc;
   resize: none;
 }
+
+/* Navigation Buttons Layout */
 .navigation-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  
 }
+
 .nav-left,
 .nav-right {
   display: flex;
   gap: 10px;
 }
 
-
-#options-container label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1rem;
-}
-
-.bottom-left {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  margin-top: 1rem;
-}
 .previous-btn-wrapper {
   display: flex;
-  justify-content: flex-start; /* Align to left */
+  justify-content: flex-start;
   margin-bottom: 1rem;
 }
 
+/* Navigation Buttons */
 #prev-btn {
   background-color: #999;
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 10px 20px;
   cursor: pointer;
 }
@@ -121,7 +117,7 @@ body {
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 10px 20px;
   cursor: pointer;
 }
@@ -131,13 +127,12 @@ body {
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 0px;
+  border-radius: 0;
   padding: 10px 20px;
   cursor: pointer;
 }
 
-
-
+/* Camera Feed */
 .camera-box {
   position: fixed;
   bottom: 20px;
@@ -145,9 +140,8 @@ body {
   width: 160px;
   height: 110px;
   background: black;
-  border-radius: 8px;
   overflow: hidden;
-  border: 2px solid #000;
+  border: 1px solid #000;
   z-index: 999;
 }
 
@@ -157,39 +151,7 @@ body {
   object-fit: cover;
 }
 
-
-.button-controls {
-  flex-grow: 1;
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-}
-
-.button-controls button,
-#submit-test-btn,
-#end-test-btn {
-  padding: 10px 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-#next-btn {
-  background-color: #007acc;
-  color: white;
-}
-
-#revisit-btn {
-  background-color: #f5a623;
-  color: white;
-}
-
-#prev-btn {
-  background-color: #999;
-  color: white;
-}
-
+/* =================== RIGHT PANEL =================== */
 .right-panel {
   flex: 1;
   border-left: 1px solid #ccc;
@@ -199,14 +161,24 @@ body {
   justify-content: space-between;
 }
 
+/* Question Stats */
 .stats-box p {
   margin: 0 0 10px 0;
   font-weight: bold;
 }
 
+/* Question Nav */
 .question-nav h3 {
   margin-bottom: 10px;
 }
+
+#options-container label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 
 #question-buttons {
   display: flex;
@@ -235,17 +207,167 @@ body {
 }
 
 #question-buttons button.revisit {
-  background-color: yellow;
+  background-color: hwb(60 0% 0%);
   color: black;
 }
 
+/* Bottom Buttons */
+.bottom-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+/* Submit & End Test Buttons */
 #submit-test-btn {
   background-color: #009900;
   color: white;
-  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
 }
 
 #end-test-btn {
   background-color: #cc0000;
   color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+/* =================== Button Hover Styles =================== */
+
+/* Navigation Buttons Hover */
+#prev-btn:hover {
+  background-color: #7a7a7a;
+}
+
+#revisit-btn:hover {
+  background-color: #d98b00;
+}
+
+#next-btn:hover {
+  background-color: #005fa3;
+}
+
+/* Question Number Buttons Hover */
+#question-buttons button:hover {
+  background-color: #b3b3b3;
+}
+
+/* Submit & End Test Buttons Hover */
+#submit-test-btn:hover {
+  background-color: #007a00;
+}
+
+#end-test-btn:hover {
+  background-color: #990000;
+}
+
+/* Hover for visited/revisit buttons (if needed) */
+#question-buttons button.visited:hover {
+  background-color: #006400; /* dark green */
+}
+
+#question-buttons button.revisit:hover {
+  background-color: #e6c200; /* darker yellow */
+}
+
+/* ====== Modal Styles ====== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 9999;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.modal button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#confirmEnd {
+  background-color: #cc0000;
+  color: white;
+}
+
+#confirmSubmit {
+  background-color: #009900;
+  color: white;
+}
+
+.modal-content button:hover {
+  opacity: 0.85;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Tab switch warning modal */
+#tab-warning-popup.modal {
+  position: fixed;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 9999;
+}
+
+#tab-warning-popup .modal-content {
+  margin-top: 40px;
+  background-color: #fff3cd;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  font-weight: bold;
+}
+
+#tab-warning-ok {
+  margin-top: 15px;
+  padding: 8px 16px;
+  background-color: #ffc107;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
 }
