@@ -29,9 +29,34 @@
 
     <div class="main-area">
       <div class="top-bar"></div>
+       <h2>Assessment Configuration Summary</h2>
       <div class="summary-container">
-        <h2>Assessment Configuration Summary</h2>
 
+        <!-- ✳️ Controls Section -->
+        <div class="table-controls">
+            <!-- Row 1: Button -->
+            <div class="top-control-row">
+            <button class="capture-btn">Capture Candidate Details</button>
+            </div>
+
+            <!-- Row 2: Show Entries + Search -->
+            <div class="bottom-control-row">
+            <div class="left-controls">
+                Show
+                <select class="entries-select">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                </select>
+                entries
+            </div>
+
+            <div class="right-controls">
+                <label for="search-box">Search:</label>
+                <input type="text" id="search-box" class="search-input" />
+            </div>
+            </div>
+        </div>
         <table class="config-table">
           <thead>
             <tr>
@@ -61,11 +86,11 @@
               <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
                 <td>
                     <div class="view-dropdown-wrapper">
-                        <button class="view-dropdown-toggle" type="button">View ▼</button>
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
                         <div class="view-dropdown-menu hidden">
-                        <a href="#" class="view-dropdown-item">View/Edit</a>
-                        <a href="#" class="view-dropdown-item">Send to Single/Multiple Users</a>
-                        <a href="#" class="view-dropdown-item">Send to Group</a>
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
                         </div>
                     </div>
                 </td>
@@ -89,7 +114,30 @@
     </div>
   </div>
 
+  <!-- Email Modal -->
+  <div id="emailModal" class="custom-modal hidden">
+    <div class="custom-modal-content">
+      <span class="custom-close" id="closeEmailModal">&times;</span>
+      <h3>Send Link to Single/Multiple Users</h3>
+      <label for="emailInput">Enter Email(s):</label>
+      <input type="text" id="emailInput" placeholder="e.g. user1@example.com, user2@example.com" />
+      <button id="sendEmailBtn">Send</button>
+    </div>
+  </div>
+
+  <!-- Group Link Modal -->
+  <div id="linkModal" class="custom-modal hidden">
+    <div class="custom-modal-content">
+      <span class="custom-close" id="closeLinkModal">&times;</span>
+      <h3>Group Test Link</h3>
+      <input type="text" id="generatedLink" value="https://example.com/test/123" readonly />
+      <button onclick="navigator.clipboard.writeText(document.getElementById('generatedLink').value)">Copy Link</button>
+    </div>
+  </div>
+
+  
   <script src="summary.js"></script>
+
 
 </body>
 </html>

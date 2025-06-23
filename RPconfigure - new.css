@@ -1,0 +1,828 @@
+:root {
+  --dark-background: #2c3e50;
+  --light-text: #ecf0f1;
+  --grey-text: #bdc3c7;
+  --active-bg: #dc3545; /* A darker red for active states */
+  --sidebar-gray: #808080; /* Gray color for sidebar background */
+  --sidebar-dark-gray: #495057; /* Darker gray for hover states */
+  --top-bar-red: #dc3545; /* Red color for top bar */
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+.top-bar {
+    height: 50px;
+    background-color: var(--top-bar-red); /* Red color for top bar */
+    width: 100%; /* Spans full width of main-area */
+    display: flex; /* Added flex display for content alignment */
+    align-items: center; /* Center content vertically */
+    padding: 0 20px; /* Added horizontal padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+
+.sidebar {
+  width: 200px;
+  background-color: var(
+    --sidebar-gray
+  ); /* Changed from var(--primary-red) to gray */
+  color: var(--light-text);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
+}
+
+.sidebar .logo {
+  text-align: center;
+  padding: 0;
+  margin-top: -21px;
+}
+
+.sidebar .logo img {
+  border-radius: 0%;
+  object-fit: cover;
+  background-color: var(--light-text);
+}
+
+.sidebar .main-nav {
+  list-style: none;
+  padding: 0;
+  flex-grow: 1; /* Allows nav to take available space */
+}
+
+.sidebar .main-nav li {
+  position: relative; /* For dropdown positioning */
+}
+
+/* Base style for ALL clickable nav items (direct links, dropdown toggles, dropdown items) */
+.sidebar .main-nav .nav-item,
+.sidebar .main-nav .nav-link,
+.sidebar .main-nav .dropdown-item {
+  display: block;
+  padding: 15px 20px; /* Base padding */
+  color: var(--light-text);
+  text-decoration: none;
+  transition: background-color 0.3s ease, border-left-color 0.3s ease; /* Added border-left-color to transition */
+  border-left: 5px solid transparent; /* Consistent space for border */
+}
+
+/* MODIFIED: Updated hover effects - Assessment gets red background on hover */
+.sidebar .main-nav .nav-item:hover,
+.sidebar .main-nav .nav-link:hover {
+  background-color: var(--top-bar-red);
+  color: var(--light-text); /* Keep text white */
+}
+
+/* MODIFIED: Separate hover for dropdown items - red text, white background */
+.sidebar .main-nav .dropdown-item:hover {
+  background-color: #fff !important; /* Keep white background */
+  color: var(--top-bar-red) !important; /* Red text color */
+}
+
+/* MODIFIED: Updated active state to use darker gray background */
+.sidebar .main-nav .nav-item.active {
+  background-color: var(--sidebar-dark-gray);
+  font-weight: bold;
+  border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* MODIFIED: Updated dropdown toggle active state - red background when toggled */
+.sidebar .main-nav .dropdown-toggle.active {
+  background-color: var(
+    --top-bar-red
+  ); /* Red background when dropdown is open */
+  font-weight: bold;
+  border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Active state for dropdown menu items (e.g., My Result, All Result) */
+.sidebar .main-nav .dropdown-item.active {
+  background-color: var(
+    --top-bar-red
+  ); /* Darker background for active sub-item */
+  font-weight: bold;
+  border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Dropdown specific styles */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  background-color: #ffffff; /* Same as sidebar for seamless look */
+  padding: 0; /* Remove default list padding */
+  list-style: none;
+  border-radius: 0px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu.show {
+  display: block; /* Shown when 'show' class is added by JS */
+}
+
+/* Indent dropdown items more. This padding is in *addition* to the 20px base + 5px transparent border */
+.dropdown-menu .dropdown-item {
+  padding-left: 45px; /* Keep existing padding */
+  color: #000 !important; /* Force black text color */
+  background-color: #fff;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Basic arrow styling for dropdown toggles */
+.dropdown-toggle::after {
+  content: "▶"; /* Right-pointing arrow */
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-toggle.active::after {
+  transform: rotate(90deg); /* Rotate arrow when active/open */
+}
+
+.sidebar .profile {
+  padding: 20px;
+  text-align: center;
+  margin-top: auto; /* Pushes profile to the bottom */
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .profile .profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-top: 10px;
+  background-color: var(--light-text);
+}
+
+.layout-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* MODIFIED: Updated top-bar styling to match screenshot's red header */
+.top-bar {
+  height: 50px;
+  background-color: var(
+    --top-bar-red
+  ); /* Changed to use the red color variable */
+  width: 100%;
+  display: flex; /* Added flex display for content alignment */
+  align-items: center; /* Center content vertically */
+  padding: 0 20px; /* Added horizontal padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+.hire-container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 240px;
+}
+
+.form-box {
+  max-width: 600px;
+  width: 100%;
+  padding: 10px 50px;
+  /* background: rgb(242, 237, 237); */
+  background: #ffffff;
+  border: 2px;
+  box-shadow: 0 40px 40px rgba(105, 101, 101, 0.1);
+  border-radius: 0.5rem;
+}
+
+.form-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 200;
+  margin-bottom: 2rem;
+  color: #000000;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #000000;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+}
+
+.form-text-note {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 5px;
+  display: block; /* Ensure it's on its own line */
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.form-group label.result-label {
+  flex: 1;
+  min-width: 200px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.form-group select {
+  flex: 20;
+  padding: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 0.2rem;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 2rem;
+  padding: 20px 0;
+}
+
+.clear-btn,
+.submit-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+  font-family: Arial, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.clear-btn {
+  background-color: #f8f9fa;
+  color: #495057;
+  border: 2px solid #dee2e6;
+}
+
+.submit-btn {
+  background-color: #3c8dbc;
+  color: #fff;
+  border: 2px solid #3c8dbc;
+}
+
+.submit-btn:hover {
+  background-color: #2d688a;
+  border-color: #2d688a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(60, 141, 188, 0.3);
+}
+
+.clear-btn:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.clear-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(60, 141, 188, 0.3);
+}
+
+.show-result-section {
+  margin-top: 0.1rem;
+  padding: 9px;
+  border-radius: 10px;
+  border-color: #807979;
+}
+
+.result-label {
+  font-size: 14px;
+}
+
+/* Unified styling for all radio labels */
+.radio-label,
+.radio-label-1 {
+  position: relative;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+}
+
+.radio-label {
+  position: relative;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.radio-label-1 {
+  position: relative;
+  font-size: 12px;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+}
+
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 2;
+  gap: 0.5rem;
+  margin-left: 10px; /* This aligns with other input boxes */
+}
+
+/* Hide native radio */
+.radio-label input[type="radio"],
+.radio-label-1 input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Change border color when checked */
+.radio-label input[type="radio"]:checked + .radio-label-marker::before,
+.radio-label-1 input[type="radio"]:checked + .radio-label-marker-1::before {
+  border-color: #dc3545;
+}
+
+/* Hover effects for radio buttons */
+.radio-label:hover .radio-label-marker::before,
+.radio-label-1:hover .radio-label-marker-1::before {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 2px rgba(220, 53, 69, 0.1);
+}
+
+/* Style when radio is checked - create inner filled circle */
+.radio-label input[type="radio"]:checked + .radio-label-marker::after,
+.radio-label-1 input[type="radio"]:checked + .radio-label-marker-1::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #dc3545;
+  transition: all 0.2s ease;
+}
+
+/* Unified styling for all radio button markers */
+.radio-label-marker,
+.radio-label-marker-1 {
+  position: relative;
+  padding-left: 25px;
+  margin-top: 0;
+}
+
+/* Radio Button Fixes - Add this to your existing CSS or create a new file */
+
+/* Fix for radio button groups - ensure they work independently */
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.form-group label.result-label {
+  flex: 1;
+  min-width: 200px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Unified styling for both radio button containers */
+.radio-options,
+.radio-options-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex: 2;
+  margin-left: 10px;
+}
+
+/* Unified styling for all radio labels */
+.radio-label,
+.radio-label-1 {
+  position: relative;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+}
+
+/* Unified styling for all radio button markers */
+.radio-label-marker,
+.radio-label-marker-1 {
+  position: relative;
+  padding-left: 25px;
+  margin-top: 0;
+}
+
+/* Create custom radio button circles for both groups */
+.radio-label-marker::before,
+.radio-label-marker-1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #666;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+/* Radio Button Fixes - Add this to your existing CSS or create a new file */
+
+/* Fix for radio button groups - ensure they work independently */
+.form-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+}
+
+.form-group label.result-label {
+  flex: 1;
+  min-width: 200px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Unified styling for both radio button containers */
+.radio-options,
+.radio-options-1 {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex: 2;
+  margin-left: 10px;
+}
+
+/* Unified styling for all radio labels */
+.radio-label,
+.radio-label-1 {
+  position: relative;
+  font-size: 14px;
+  color: #000;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: normal;
+}
+
+/* Unified styling for all radio button markers */
+.radio-label-marker,
+.radio-label-marker-1 {
+  position: relative;
+  padding-left: 25px;
+  margin-top: 0;
+}
+
+/* Create custom radio button circles for both groups */
+.radio-label-marker::before,
+.radio-label-marker-1::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid #666;
+  background-color: #fff;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+/* Fill the circle when checked */
+
+.question-input {
+  width: 50px;
+  padding: 5px;
+  font-size: 1em;
+  margin-left: 10px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-row label {
+  flex: 1;
+  min-width: 90px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.form-row input,
+.form-row select {
+  flex: 2;
+  padding: 10px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 0.1rem;
+}
+
+/* Wrapper holding Objective + Subjective side-by-side (or stacked on smaller screens) */
+.question-type-wrapper {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Each group (Objective / Subjective) styling */
+.question-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Label inside each question group */
+.sub-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Row containing the select dropdown + number input */
+.question-select-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Style the dropdown */
+.question-select {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the number input next to dropdown */
+.question-count {
+  width: 120px;
+  padding: 0.4rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.experience-field-wrapper {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.experience-inputs {
+  display: flex;
+  align-items: center;
+  padding-left: 120px;
+  gap: 0.45rem; /* adjust space between year/month fields */
+}
+
+.experience-inputs input {
+  width: 60px;
+  padding: 6px;
+  font-size: 0.85rem;
+}
+
+.question-select-section {
+  margin-top: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.question-select-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.question-select-row label {
+  flex: 1;
+}
+
+.question-dropdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
+  padding: 0.6rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+}
+
+.question-dropdown:hover {
+  background-color: #f5f5f5;
+}
+
+.question-dropdown .arrow {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.question-content {
+  border: 1px solid #ccc;
+  padding: 0.7rem;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 1rem;
+}
+
+.dropdown-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.dropdown-item label {
+  flex: 1;
+  font-weight: normal;
+}
+
+.question-count {
+  width: 60px !important;
+  padding: 6px;
+  font-size: 0.9rem;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.passing-criteria-section {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.passing-criteria-fields {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.passing-criteria-fields input {
+  padding: 0.5rem;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 150px;
+}
+
+#addCriteriaBtn {
+  padding: 0.5rem 1rem;
+  background-color: #3c8dbc;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#addCriteriaBtn:hover {
+  background-color: #2d688a;
+}
+
+.criteria-list-wrapper {
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.criteria-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.criteria-table th,
+.criteria-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.remove-btn {
+  padding: 4px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-btn:hover {
+  background-color: #a71d2a;
+}
+
+/* 🔁 Only new class names added (no conflict with existing styles) */
+
+.passing-criteria-wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.1rem;
+  flex: 2;
+}
+
+.passing-criteria-add {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  border: 1.5px solid black;
+  font-size: 14px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.passing-criteria-row {
+  display: flex;
+  gap: 10px;
+}
+
+.passing-criteria-row input[type="text"] {
+  flex: 5;
+  padding: 8px;
+  font-size: 12px;
+}
+
+.passing-criteria-row input[type="number"] {
+  width: 60px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+textarea {
+  width: 66%;
+  padding: 0.1rem;
+  font: sans-serif;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  resize: vertical; /* Allow vertical resizing */
+}
+
+

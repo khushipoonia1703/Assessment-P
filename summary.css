@@ -156,19 +156,50 @@ body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
-  padding: 2rem;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+.main-area {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;  /* ✅ Prevent horizontal scroll */
+}
+
+/* MODIFIED: Updated top-bar styling to match screenshot's red header */
+.top-bar {
+  height: 50px;
+  background-color: var(
+    --top-bar-red
+  ); /* Changed to use the red color variable */
+  width: 100%;
+  display: flex; /* Added flex display for content alignment */
+  align-items: center; /* Center content vertically */
+  padding: 0 20px; /* Added horizontal padding */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
 }
 
 .summary-container {
   flex-grow: 1;
   background: white;
-  padding: 2rem;
-  border-radius: 0;
+  padding: 10px 10px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
   overflow-y: auto;
-  margin: 20px;
-  max-height: calc(100vh - 70px); /* full screen height minus top bar */
+  overflow-x: auto;
+  margin: 10px auto;
+  max-height: calc(100vh - 80px); /* full screen height minus top bar */
   width: 100%;
+  max-width: 95%;
+  margin-top: 0px;
 }
 
 h2 {
@@ -180,8 +211,9 @@ h2 {
 
 .config-table {
   width: 100%;
+  min-width: 1000px;
   border-collapse: collapse;
-  padding: 20px;;
+  padding: 1px;
 }
 
 .config-table th {
@@ -206,9 +238,10 @@ h2 {
 
 
 .config-table th {
-  background-color: #848182;
-  color: white;
-  font-size: 16px;
+  background-color: #dcdcdc;
+  color: rgb(0, 0, 0);
+  font-size: 12px;
+  font-weight: bold;
 
 }
 
@@ -244,13 +277,14 @@ h2 {
 .view-dropdown-menu {
   position: absolute;
   top: 110%;
-  left: 0;
+  right: 0;
   z-index: 1000;
   background-color: rgb(211, 209, 209);
   border: 1px solid #ccc;
   border-radius: 4px;
-  min-width: 220px;
+  min-width: 200px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  text-align: left;
 }
 
 /* Dropdown Items */
@@ -271,3 +305,158 @@ h2 {
 .view-dropdown-menu.hidden {
   display: none;
 }
+
+/* Wrapper for all controls */
+.table-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Row 1: Button alone */
+.top-control-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Row 2: Show entries & Search */
+.bottom-control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Left: Show Entries */
+.left-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: #333;
+}
+
+.entries-select {
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+}
+
+/* Right: Search */
+.right-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+}
+
+.search-input {
+  padding: 5px 9px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+/* Capture Button Styling (already in your CSS, repeating for clarity) */
+.capture-btn {
+  background-color: #3c8dbc;
+  color: white;
+  border: none;
+  padding: 7px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.capture-btn:hover {
+  background-color: #2d688a;
+}
+
+.summary-heading {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin: 20px 0 0 0;
+  padding-top: 20px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 400px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.modal-content textarea,
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.modal-send-btn {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #3c8dbc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modal-send-btn:hover {
+  background-color: #2d688a;
+}
+
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.custom-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  width: 400px;
+}
+
