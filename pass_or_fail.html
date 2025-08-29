@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Result Summary</title>
+  <link rel="stylesheet" href="./pass_or_fail.css">
+</head>
+<body>
+  <div class="layout-container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="logo">
+        <img src="/logo.png" width="200" height="50" alt="Logo" />
+      </div>
+      <ul class="main-nav">
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle">Assessment</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="./summary.html">Configuration Summary</a>
+            <a class="dropdown-item" href="./HPapply.html">Take Test</a>
+            <a class="dropdown-item" href="./my_result.html">My Result</a>
+            <a class="dropdown-item" href="./all_results.html">All Results</a>
+            <a class="dropdown-item" href="./feedback_form.html">Give Feedback</a>
+            <a class="dropdown-item" href="./view_feedback.html">View Feedback</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-area">
+      <div class="top-bar"></div>
+
+      <div class="main-content">
+        <div class="header">
+          <h1>Test Outcome</h1>
+        </div>
+
+        <!-- Result Summary (Only Pass/Fail) -->
+        <div class="result-summary" id="resultBox">
+          <h2 id="resultMessage"></h2>
+          <div class="result-footer">
+            Result: <span id="resultStatus" class="pass">Pass</span>
+          </div>
+        </div>
+
+        <!-- Home Button -->
+        <div class="feedback-button-container">
+          <a href="./RPindex.html" class="feedback-button">Go to Home</a>
+        </div>
+      </div>
+      <footer class="page-footer">
+        <p>&copy; iValuePlus Services Private Limited</p>
+      </footer> 
+    </div>
+  </div>
+
+  <!-- Script to dynamically show pass/fail -->
+  <script>
+    // Sample flag to simulate result
+    const isPassed = true; // set to false for fail case
+
+    const resultStatus = document.getElementById("resultStatus");
+    const resultMessage = document.getElementById("resultMessage");
+    const resultBox = document.getElementById("resultBox");
+
+    if (isPassed) {
+      resultStatus.textContent = "Pass";
+      resultStatus.classList.remove("fail");
+      resultStatus.classList.add("pass");
+      resultMessage.textContent = "🎉 Congratulations! You have passed the test.";
+    } else {
+      resultStatus.textContent = "Fail";
+      resultStatus.classList.remove("pass");
+      resultStatus.classList.add("fail");
+      resultMessage.textContent = "❌ Better luck next time. You did not pass.";
+    }
+  </script>
+</body>
+</html>

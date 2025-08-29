@@ -2,17 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Test Submitted</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Exam Finished</title>
   <link rel="stylesheet" href="endtest.css" />
 </head>
 <body>
-  <div class="endtest-container">
-    <h1>Test Submitted</h1>
-    <p>Your answers are saved.</p>
-    <a href="feedback_form.html" class="feedback-btn">Give Feedback</a>
+  <div class="wrapper">
+    <div class="end-container">
+      <div class="icon">✅</div>
+      <h1>Test Ended Successfully!</h1>
+      <p>Your response has been recorded.</p>
+
+      <div class="summary-box">
+        <h2>Summary</h2>
+        <p>✅ Attempted: <span id="attempted"></span></p>
+        <p>🔁 Revisited: <span id="revisited"></span></p>
+        <p>❌ Not Attempted: <span id="notAttempted"></span></p>
+      </div>
+
+      <button onclick="window.location.href='RPindex.html'">Back to Dashboard</button>
+    </div>
+
+    <footer class="page-footer">
+      <p>&copy; iValuePlus Services Private Limited</p>
+    </footer>
   </div>
 
-  <script src="endtest.js"></script>
+  <script>
+    const summary = JSON.parse(localStorage.getItem("examSummary") || "{}");
+    document.getElementById("attempted").textContent = summary.attempted ?? 0;
+    document.getElementById("revisited").textContent = summary.revisited ?? 0;
+    document.getElementById("notAttempted").textContent = summary.notAttempted ?? 0;
+  </script>
 </body>
 </html>

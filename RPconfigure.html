@@ -9,250 +9,269 @@
   <body>
     <div class="layout-container">
       <div class="sidebar">
-          <div class="logo">
-            <img src="/logo.png" width="200" height="50" alt="Logo" />
-          </div>
-          <ul class="main-nav">
-            <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle">Assessment</a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="./RPconfigure.html"
-                  >Configure Test</a
-                >
-                <a class="dropdown-item" href="./HPapply.html">Take Test</a>
-                <a class="dropdown-item" href="./my_result.html">My Result</a>
-                <a class="dropdown-item" href="./all_results.html">All Results</a>
-                <a class="dropdown-item" href="./feedback_form.html"
-                  >Give Feedback</a
-                >
-                <a class="dropdown-item" href="./view_feedback.html"
-                  >View Feedback</a
-                >
-              </div>
-            </li>
-          </ul>
-
+        <div class="logo">
+          <img src="/logo.png" width="200" height="50" alt="Logo" />
         </div>
-    
-      <div class="hire-container">
-        <div class="form-box">
-          <h2 class="form-title">Assessment Configuration Form</h2>
-
-          <form id="configForm" class="form">
-            <div class="form-row">
-              <label for="industry">Industry:</label>
-              <input
-                id="industry"
-                type="text"
-                placeholder="e.g., IT, Finance"
-                
-              />
+        <ul class="main-nav">
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle">Assessment</a>
+            <div class="dropdown-menu">
+              <!-- <a class="dropdown-item active" href="./RPconfigure.html">Configure Test</a> -->
+              <a class="dropdown-item" href="./summary.html"> Configuration Summary</a>
+              <a class="dropdown-item" href="./HPapply.html">Take Test</a>
+              <a class="dropdown-item" href="./my_result.html">My Result</a>
+              <a class="dropdown-item" href="./all_results.html">All Results</a>
+              <a class="dropdown-item" href="./feedback_form.html">Give Feedback</a>
+              <a class="dropdown-item" href="./view_feedback.html">View Feedback</a>
             </div>
-
-            <div class="form-row">
-              <label for="jobRole">Job Role:</label>
-              <input
-                id="jobRole"
-                type="text"
-                placeholder="e.g., Software Engineer"
-                style="width: 42rem"
-              />
-            </div>
-
-            <div class="form-row">
-              <label for="jobDescription">Job Description:</label>
-              <input
-                id="jobDescription"
-                type="text"
-                placeholder="Enter job description (optional)"
-              />
-            </div>
-
-            <div class="form-group">
-              <label>Experience:</label>
-              <div class="experience-field-wrapper">
-                <div class="experience-inputs">
-                  <input type="number" id="experienceYears" name="experience_years" min="0" value="0" required>
-                  <label for="experienceYears" class="inline-label">years</label>
-                  <input type="number" id="experienceMonths" name="experience_months" min="0" max="11" value="0" required>
-                  <label for="experienceMonths" class="inline-label">months</label>
-                </div>
-              </div>
-            </div>
-            
-            <div class="form-row">
-              <label for="numQuestions">Number of Questions:</label>
-              <select id="numQuestions">
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <label for="typeOfQuestions">Type of Questions:</label>
-              <div class="question-type-wrapper">
-                
-                <!-- Objective Toggle Dropdown -->
-                <div class="question-dropdown" onclick="toggleSection('objective-section')">
-                  <span>Objective:</span>
-                  <span class="arrow">&#9662;</span> <!-- ▼ arrow symbol -->
-                </div>
-                <div class="question-content" id="objective-section" style="display: none;">
-                  <div class="dropdown-item">
-                    <label>MCQ</label>
-                    <input type="number" min="0" class="question-count" />
-                  </div>
-                  <div class="dropdown-item">
-                    <label>MMCQ</label>
-                    <input type="number" min="0" class="question-count" />
-                  </div>
-                  <div class="dropdown-item">
-                    <label>Add other..</label>
-                    <input type="number" min="0" class="question-count" />
-                  </div>
-                </div>
-
-                <!-- Subjective Toggle Dropdown -->
-                <div class="question-dropdown" onclick="toggleSection('subjective-section')">
-                  <span>Subjective:</span>
-                  <span class="arrow">&#9662;</span>
-                </div>
-                <div class="question-content" id="subjective-section" style="display: none;">
-                  <div class="dropdown-item">
-                    <label>Text-based</label>
-                    <input type="number" min="0" class="question-count" />
-                  </div>
-                  <div class="dropdown-item">
-                    <label>Coding Questions</label>
-                    <input type="number" min="0" class="question-count" />
-                  </div>
-                  <div class="dropdown-item">
-                    <label>Add other..</label>
-                    <input type="number" min="0" class="question-count" />
-                  </div>
-                </div>
-
-
-              </div>
-            </div>
-
-            <div class="form-row">
-              <label for="difficultyLevel">Difficulty Level:</label>
-              <select id="difficultyLevel" name="difficultyLevel">
-                <option value="">Select level</option>
-                <option value="1">1 - Very Easy</option>
-                <option value="2">2 - Easy</option>
-                <option value="3">3 - Medium</option>
-                <option value="4">4 - Hard</option>
-                <option value="5">5 - Very Hard</option>
-              </select>
-            </div>
-
-
-            <div class="form-group">
-              <label>Time Allocation:</label>
-              <div class="experience-inputs">
-                <input type="number" name="durationHours" min="0" value="0" required />
-                <label class="inline-label">hours</label>
-                <input type="number" name="durationMinutes" min="0" max="59" value="0" required />
-                <label class="inline-label">minutes</label>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <label for="additionalInfo">Additional Information:</label>
-              <input
-                id="additionalInfo"
-                type="text"
-                placeholder="Enter any additional notes (optional)"
-              />
-            </div>
-
-            <div class="form-row">
-              <label for="country">Country:</label>
-              <select id="country">
-                <option value="">Select a country</option>
-                <option value="India">India</option>
-                <option value="USA">United States of America</option>
-                <option value="Canada">Canada</option>
-                <option value="Germany">Germany</option>
-                <option value="Russia">Russia</option>
-                <option value="UK">United Kingdom</option>
-                <option value="China">China</option>
-              </select>
-            </div>
-
-            <div class="form-row">
-              <label for="state">State:</label>
-              <select id="state" name="state">
-                <option value="">Select State</option>
-                <option value="Haryana">Haryana</option>
-                <option value="Rajasthan">Rajasthan</option>
-                <option value="Kerala">Kerala</option>
-                <option value="Madhya Pradesh">Madhya Pradesh</option>
-                <option value="Himachal Pradesh">Himachal Pradesh</option>
-                <option value="Tamil Nadu">Tamil Nadu</option>
-              </select>
-            </div>
-
-            <!-- Checkbox -->
-            <div class="form-group">
-              <label class="result-label">Show marks to the Interviewer:</label>
-              <div class="radio-options">
-                <label class="radio-label">
-                  <input type="radio" name="showResult" value="yes" />
-                  <span class="radio-label-marker">Yes</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="showResult" value="no" />
-                  <span class="radio-label-marker">No</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Checkbox -->
-            <div class="form-group">
-              <label class="result-label">Show result to the Interviewee:</label>
-              <div class="radio-options">
-                <label class="radio-label">
-                  <input type="radio" name="showResult" value="yes" />
-                  <span class="radio-label-marker">Yes</span>
-                </label>
-                <label class="radio-label">
-                  <input type="radio" name="showResult" value="no" />
-                  <span class="radio-label-marker">No</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="button-container">
-              <button type="button" class="clear-btn" onclick="clearForm()">
-                Clear Configuration
-              </button>
-              <button type="submit" class="submit-btn" href="./summary.html">Save </button>
-            </div>
-          </form>
-        </div>
+          </li>
+        </ul>
       </div>
-    </div>  
+      <div class="main-area">
+        <div class="top-bar"></div>
+        <div class="hire-container">
+          <div class="form-box">
+            <h2 class="form-title">Assessment Configuration Form</h2>
 
-    <script>
-    // Sidebar dropdown toggle logic
-      document.addEventListener("DOMContentLoaded", function () {
-        const dropdownToggles = document.querySelectorAll(".dropdown-toggle");
+            <form id="configForm" class="form">
+              <div class="form-row">
+                <label for="industry">Industry:</label>
+                <input
+                  id="industry"
+                  type="text"
+                  placeholder="e.g., IT, Finance"
+                />
+              </div>
 
-        dropdownToggles.forEach(toggle => {
-          toggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            const menu = this.nextElementSibling;
-            menu.classList.toggle("show");
-            this.classList.toggle("active");
-          });
-        });
-      });
-    </script>
+              <div class="form-row">
+                <label for="jobRole">Job Role:</label>
+                <input
+                  id="jobRole"
+                  type="text"
+                  placeholder="e.g., Software Engineer"
+                  style="width: 42rem"
+                />
+              </div>
 
+              <div class="form-row">
+                <label for="jobDescription">Job Description:</label>
+                <textarea id="jobDescription" name="jobDescription" rows="4" placeholder="Enter job description"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Experience:</label>
+                <div class="experience-field-wrapper">
+                  <div class="experience-inputs">
+                    <label for="experienceYears" class="inline-label"
+                      >From: </label
+                    >
+                    <input
+                      type="number"
+                      id="experienceYears"
+                      name="experience_years"
+                      min="0"
+                      value="0"
+                      required
+                    />
+                    <label for="experienceMonths" class="inline-label"
+                      >To: </label
+                    >
+                    <input
+                      type="number"
+                      id="experienceMonths"
+                      name="experience_months"
+                      min="0"
+                      max="11"
+                      value="0"
+                      required
+                    />
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <label class="table-label">Type of Questions:</label>
+                <table class="question-type-table" id="questionTypeTable">
+                  <thead>
+                    <tr>
+                      <th style="width: 110px;">Type</th>
+                      <th style="width: 90px;">Sub-category</th>
+                      <th>Number of Options</th>
+                      <th>Number of Questions</th>
+                      <th>Difficulty-level <span style="font-size: 12px; color: gray;">(optional)</span></th>
+                      <th>Weightage</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="questionTypeBody">
+                    <tr>
+                      <td style="width: 110px;">
+                        <select class="type-select">
+                          <option value="">Select Type</option>
+                          <option value="Objective">Objective</option>
+                          <option value="Subjective">Subjective</option>
+                        </select>
+                      </td>
+                      <td style="width: 90px;">
+                        <select class="subcategory-select">
+                          <option value="">Select Sub-category</option>
+                        </select>
+                      </td>
+                      <td><input type="number" placeholder="e.g. 4" /></td> <!-- Number of Options -->
+                      <td><input type="number" placeholder="e.g. 5" /></td>
+                      <td><input type="text" placeholder="Optional" /></td>
+                      <td><input type="text" placeholder="%" /></td>
+                      <td><button type="button" class="remove-btn">x</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="button" id="addQuestionTypeRowBtn" class="add-row-btn">+ Add Row</button>
+              </div>
+
+
+              <!-- For Difficulty Level -->
+              <div class="space-row">
+                <label for="difficultyLevel">Difficulty Level:</label>
+                <div class="difficulty-wrapper">
+                  <select id="difficultyLevel" name="difficultyLevel">
+                    <option value="">Select level</option>
+                    <option value="1">1 - Very Easy</option>
+                    <option value="2">2 - Easy</option>
+                    <option value="3">3 - Medium</option>
+                    <option value="4">4 - Hard</option>
+                    <option value="5">5 - Very Hard</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="time-group">
+                <label>Time Allocation:</label>
+                <div class="time-inputs">
+                  <input
+                    type="number"
+                    name="durationHours"
+                    min="0"
+                    value="0"
+                    required
+                  />
+                  <label class="inline-label">hours</label>
+                  <input
+                    type="number"
+                    name="durationMinutes"
+                    min="0"
+                    max="59"
+                    value="0"
+                    required
+                  />
+                  <label class="inline-label">minutes</label>
+                </div>
+              </div>
+
+              <!-- For Upload Document -->
+              <div class="space-row">
+                <label for="documentUpload" class="result-label" >Upload Document:</label>
+                <div class="upload">
+                  <input
+                  type="file"
+                  id="documentUpload"
+                  name="documentUpload"
+                  accept=".doc,.docx,.pdf"
+                  class="styled-input"
+                />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <label for="additionalInfo">Additional Information:</label>
+                <textarea
+                  id="additionalInfo"
+                  type="text"
+                  placeholder="Enter any additional notes (optional)"></textarea>
+              </div>
+
+              <div class="form-row">
+                <label for="country">Country:</label>
+                <select id="country">
+                  <option value="">Select a country</option>
+                  <option value="India">India</option>
+                  <option value="USA">United States of America</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Germany">Germany</option>
+                  <option value="Russia">Russia</option>
+                  <option value="UK">United Kingdom</option>
+                  <option value="China">China</option>
+                </select>
+              </div>
+
+              <!-- Passing Criteria Section -->
+              <div class="form-row">
+                <label>Passing Criteria:</label>
+                <div class="passing-criteria-wrapper">
+                  <button type="button" class="passing-criteria-add">+</button>
+                  <div id="passing-criteria-container">
+                    <!-- Dynamic inputs will be appended here -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Replace the two radio button sections in your HTML with this corrected version -->
+
+              <!-- First Radio Button Group - Show marks to Interviewer -->
+              <div class="form-group">
+                <label class="result-label">Show marks to the Interviewer:</label>
+                <div class="radio-options">
+                  <label class="radio-label">
+                    <input type="radio" name="showToInterviewer" value="yes" />
+                    <span class="radio-label-marker">Yes</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="showToInterviewer" value="no" />
+                    <span class="radio-label-marker">No</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Second Radio Button Group - Show result to Interviewee -->
+              <div class="form-group">
+                <label class="result-label"
+                  >Show result to the Interviewee:</label
+                >
+                <div class="radio-options-1">
+                  <label class="radio-label-1">
+                    <input type="radio" name="showToInterviewee" value="yes" />
+                    <span class="radio-label-marker-1">Yes</span>
+                  </label>
+                  <label class="radio-label-1">
+                    <input type="radio" name="showToInterviewee" value="no" />
+                    <span class="radio-label-marker-1">No</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="button-container">
+                <button type="button" class="clear-btn" onclick="clearForm()">
+                  Clear
+                </button>
+
+                <button type="button" class="save-and-copy">
+                  Copy
+                </button>
+
+                <button type="submit" class="submit-btn" href="./summary.html">
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <footer class="page-footer">
+          <p>&copy; iValuePlus Services Private Limited</p>
+        </footer>
+        </div>
+    </div>
+
+    <script src="./RPconfigure.js"></script>
 
 
   </body>

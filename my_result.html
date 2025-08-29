@@ -20,7 +20,7 @@
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle">Assessment</a>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./RPconfigure.html">Configure Test</a>
+                        <a class="dropdown-item" href="./summary.html">Configuration Summary</a>
                         <a class="dropdown-item" href="./HPapply.html">Take Test</a>
                         <a class="dropdown-item active" href="./my_result.html">My Result</a> <!-- Added active class -->
                         <a class="dropdown-item" href="./all_results.html">All Results</a>
@@ -28,7 +28,7 @@
                         <a class="dropdown-item" href="./view_feedback.html">View Feedback</a>
                     </div>
                 </li>
-            </ul>   
+            </ul>
         </div>
 
         <div class="main-area">
@@ -46,43 +46,31 @@
                 <!-- Existing result summary content - MOVED INSIDE main-content -->
                 <div class="result-summary">
                     <h2>Your Test Result</h2>
-                    <div class="result-item">
-                        <span>Total Questions:</span>
-                        <span>20</span>
+
+                    
+                    <div class="result-dynamic">
+                        <p id="fitnessMessage" class="fitness-text"></p>
+                        <p>Your score: <strong id="finalScore"></strong></p>
+                        <p>Result: <strong id="finalResult"></strong></p>
+                        <p class="cutoff-note">
+                            <em>Note: A score of 18 or above (out of 30) is considered a Pass. Based on this, we evaluate if you're fit for travelling through ship.</em>
+                        </p>
                     </div>
-                    <div class="result-item">
-                        <span>No. of Correct Questions:</span>
-                        <span>15</span>
-                    </div>
-                    <div class="result-item">
-                        <span>No. of Incorrect Questions:</span>
-                        <span>5</span>
-                    </div>
-                    <div class="result-item">
-                        <span>Total Marks:</span>
-                        <span>100</span>
-                    </div>
-                    <div class="result-item">
-                        <span>Obtained Marks:</span>
-                        <span>75</span>
-                    </div>
-                    <div class="result-item">
-                        <span>Percentage:</span>
-                        <span>75%</span>
-                    </div>
-                    <div class="result-footer">
-                        Result: <span class="pass">Pass</span>
-                    </div>
+                    
                 </div>
 
                 <!-- Feedback button - MOVED INSIDE main-content -->
-                <div style="text-align: center; margin-top: 30px;">
-                    <a href="./feedback_form.html" class="feedback-button">Fill Feedback Form</a>
-                </div>
+                <div class="feedback-button-container">
+    <a href="./feedback_form.html" class="feedback-button">Fill Feedback Form</a>
+</div>
+
             </div>
+            <footer class="page-footer">
+                <p>&copy; iValuePlus Services Private Limited</p>
+            </footer> 
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="my_result.js"></script>
 </body>
 </html>

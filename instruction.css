@@ -5,7 +5,7 @@ body {
 }
 
 .top-bar {
-  background-color: #5a7ca8;
+  background-color: #e62c40;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -107,4 +107,12 @@ body {
 .start-button.enabled {
   cursor: pointer;
   opacity: 1;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 4px 0;
+  background-color: #f1f1f1;
+  color: #555;
+  font-size: 14px;
 }

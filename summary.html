@@ -16,8 +16,8 @@
         <li class="nav-item dropdown">
           <a href="#" class="nav-link dropdown-toggle">Assessment</a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="./RPconfigure.html">Configure Test</a>
-            <a class="dropdown-item active" href="./summary.html">Summary</a>
+            <a class="dropdown-item active" href="./summary.html">Configuration Summary</a>
+            <a class="dropdown-item" href="./HPapply.html">Take Test</a>
             <a class="dropdown-item" href="./my_result.html">My Result</a>
             <a class="dropdown-item" href="./all_results.html">All Results</a>
             <a class="dropdown-item" href="./feedback_form.html">Give Feedback</a>
@@ -36,7 +36,7 @@
         <div class="table-controls">
             <!-- Row 1: Button -->
             <div class="top-control-row">
-            <button class="capture-btn">Capture Candidate Details</button>
+            <button class="capture-btn">Add Configuration Form</button>
             </div>
 
             <!-- Row 2: Show Entries + Search -->
@@ -59,8 +59,9 @@
         </div>
         <table class="config-table">
           <thead>
+
             <tr>
-              <th>Test ID</th>
+              <th>Assessment ID</th>
               <th>Industry</th>
               <th>Job Role</th>
               <th>Experience</th>
@@ -68,21 +69,107 @@
               <th>Difficulty Level</th>
               <th>Time Allocation</th>
               <th>Country</th>
-              <th>State</th>
               <th>Actions</th>
             </tr>
           </thead>
           <tbody>
+
             <tr>
                 <td>001</td>
                 <td>IT</td>
-                <td>Software Engineer</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+
+
+
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Finance</td>
+                <td>Manager</td>
                 <td>2y 6m</td>
                 <td>20</td>
-                <td>3</td>
-                <td>1h 30m</td>
+                <td>5</td>
+                <td>1h 0m</td>
                 <td>India</td>
-                <td>Rajasthan</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
               <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
                 <td>
                     <div class="view-dropdown-wrapper">
@@ -98,19 +185,337 @@
 
 
             </tr>
-            <!-- Empty demo rows -->
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr>
+                <td>002</td>
+                <td>Finance</td>
+                <td>Manager</td>
+                <td>2y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+
+
+
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Finance</td>
+                <td>Manager</td>
+                <td>2y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+
+
+
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Finance</td>
+                <td>Manager</td>
+                <td>2y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr><tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+
+
+
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>Finance</td>
+                <td>Manager</td>
+                <td>2y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>IT</td>
+                <td>Senior Project Manager</td>
+                <td>6y 6m</td>
+                <td>20</td>
+                <td>5</td>
+                <td>1h 0m</td>
+                <td>India</td>
+              <!-- STEP 1: Replace the existing 'View' button with this dropdown structure -->
+                <td>
+                    <div class="view-dropdown-wrapper">
+                        <button class="view-dropdown-toggle" type="button">Action ▼</button>
+                        <div class="view-dropdown-menu hidden">
+                        <a href="./RPconfigure - new.html" class="view-dropdown-item">View/Edit</a>
+                        <a href="#" class="view-dropdown-item">Send link to Single/Multiple Users</a>
+                        <a href="#" class="view-dropdown-item">Send link to Group</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
           </tbody>
         </table>
+        <div id="pagination-controls" class="pagination-controls"></div>
       </div>
+      
+        <footer class="page-footer">
+          <p>&copy; iValuePlus Services Private Limited</p>
+        </footer>
     </div>
   </div>
 
@@ -133,6 +538,7 @@
       <input type="text" id="generatedLink" value="https://example.com/test/123" readonly />
       <button onclick="navigator.clipboard.writeText(document.getElementById('generatedLink').value)">Copy Link</button>
     </div>
+    
   </div>
 
   

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +10,15 @@
 <body>
   <header class="header">
     <div class="logo">
-          <img src="/logo.png" width="200" height="50" alt="Logo" />
-        </div>
+      <img src="logo.png" width="200" height="50" alt="Logo" />
+    </div>
+    <div class="timer-box">Timer: <span id="timer">30:00</span></div>
   </header>
 
   <main class="main-layout">
     <section class="left-panel">
-      <div class="timer-box">Timer: <span id="timer">30:00</span></div>
-
       <div class="question-block">
-        <div class="question-label">Q.</div>
+        <div class="question-label" id="question-number">Question-</div>
         <div class="question-text" id="question-text"></div>
       </div>
 
@@ -26,38 +26,77 @@
       <textarea id="answer" placeholder="Answer..."></textarea>
 
       <div class="navigation-row">
-        <div class="nav-left">
-        <button id="prev-btn">Previous</button>
+          <button id="prev-btn">Previous</button>
+        
+          <button id="revisit-btn">Revisit</button>
+          <button id="next-btn">Next</button>
       </div>
-      <div class="nav-right">
-        <button id="revisit-btn">Revisit</button>
-        <button id="next-btn">Next</button>
-      </div>
-    </div>
-
-
     </section>
 
     <aside class="right-panel">
       <div>
-        <div class="stats-box">
-          <p>Attempted - <span id="attempted">0</span></p>
-          <p>Not Attempted - <span id="notAttempted">0</span></p>
-        </div>
+        <div class="status-container">
+  <div class="stats-box">
+    <p>Attempted - <span id="attempted">0</span></p>
+    <p>Revisited - <span id="revisited">0</span></p>
+    <p>Not Attempted - <span id="notAttempted">0</span></p>
+  </div>
+
+  <div class="legend-box">
+    <div class="legend-row">
+      <div class="legend-item answered"></div>
+      <span>Answered</span>
+    </div>
+    <div class="legend-row">
+      <div class="legend-item revisit"></div>
+      <span>Revisit</span>
+    </div>
+    <div class="legend-row">
+      <div class="legend-item skipped"></div>
+      <span>Skip</span>
+    </div>
+  </div>
+</div>
+
+      <div class="type">
+        <p>No. of Objective Question -  <span id="objective-count">0</span></p>
+        <p>No. of Subjective Question -  <span id="subjective-count">0</span></p>
+      </div>
         <div class="question-nav">
           <h3>QUESTIONS</h3>
           <div id="question-buttons"></div>
         </div>
       </div>
-      <div>
-        <button id="submit-test-btn">Submit</button>
+
+      <div class="bottom-buttons">
+        <button id="submit-test-btn">Submit Test</button>
         <button id="end-test-btn">End Test</button>
       </div>
     </aside>
   </main>
+
+  <!-- Modals -->
+  <div id="submitTestModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you want to submit the test?</p>
+      <p id="revisit-warning" style="color: red; font-weight: bold;"></p>
+      <button id="confirmSubmit">Yes, Submit</button>
+      <button onclick="closeModal('submitTestModal')">Cancel</button>
+    </div>
+  </div>
+
+  <div id="endTestModal" class="modal hidden">
+    <div class="modal-content">
+      <p>Are you sure you want to end the test?</p>
+      <button id="confirmEnd">Yes, End Test</button>
+      <button onclick="closeModal('endTestModal')">Cancel</button>
+    </div>
+  </div>
+
   <div class="camera-box">
-          <video id="camera" autoplay muted playsinline></video>
-        </div>
+    <video id="camera" autoplay muted playsinline></video>
+  </div>
+
   <script src="assessment.js"></script>
 </body>
 </html>

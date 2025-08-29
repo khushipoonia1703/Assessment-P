@@ -1,113 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Interview Application</title>
-    <link rel="stylesheet" href="./HPapply.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Interview Application</title>
+  <link rel="stylesheet" href="HPapply.css" />
 </head>
 <body>
-    <div class="layout-container">
-        <!-- Sidebar Navigation -->
-        <!-- <div class="sidebar">
-            <div class="logo">
-                <img src="/logo.png" width="200" height="50" alt="Logo" />
-            </div>
-            <ul class="main-nav">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle">Assessment</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="./configure.html">Configure Test</a>
-                        <a class="dropdown-item active" href="./apply.html">Take Test</a>
-                        <a class="dropdown-item" href="./my_result.html">My Result</a>
-                        <a class="dropdown-item" href="./all_results.html">All Results</a>
-                        <a class="dropdown-item" href="./feedback_form.html">Give Feedback</a>
-                        <a class="dropdown-item" href="./view_feedback.html">View Feedback</a>
-                    </div>
-                </li>
-            </ul>
-        </div> -->
+  <div class="top-bar">
+    <img src="logo.png" width="200" height="50" alt="Logo" class="logo" />
+  </div>
 
-        <!-- Main Area -->
-        <div class="main-area">
-            <div class="top-bar"></div>
+  <div class="apply-container">
+    <div class="form-wrapper">
+      <h2>Interviewee Information</h2>
 
-                <!-- Main Application Content -->
-                <div class="apply-container">
-                    <div class="form-wrapper">
-                        <h2>Interviewee Information</h2>
-
-                        <div class="headshot-section">
-                            <h3>Headshot</h3>
-                            <div class="video-container square-box camera-preview">
-                                <video id="video" autoplay playsinline></video>
-                                <canvas id="canvas" class="hidden"></canvas>
-                                <img id="captured-img" class="hidden" alt="Captured" />
-                                <p id="camera-error" class="error-text hidden"></p>
-                            </div>
-                            <button id="capture-btn" class="capture-btn">Capture Photo</button>
-                            <div id="camera-controls" class="hidden">
-                                <button id="retake-btn" class="retake-btn">Retake Photo</button>
-                                <button id="use-photo-btn" class="use-photo-btn">Use This Photo</button>
-                            </div>
-                            <input type="hidden" id="capturedImageData" name="captured_image_data">
-                        </div>
-
-                        <form id="interview-form">
-                            <div class="form-group">
-                                <label for="fullName">Full Name :</label>
-                                <input type="text" id="fullName" name="fullName" required />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email Address :</label>
-                                <input type="email" id="email" name="email" required />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="phoneNumber">Phone Number :</label>
-                                <input type="tel" id="phoneNumber" name="phoneNumber" required />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="jobRole">Job Role :</label>
-                                <input type="text" id="jobRole" name="jobRole" required />
-                            </div>
-
-                            <div class="form-group experience-group">
-                                <div class="experience-inputs">
-                                    <label for="experienceYears">Experience :</label>
-                                    <input type="number" id="experienceYears" name="experience_years" min="0" value="0" required>
-                                    <span class="inline-label">Years</span>
-                                    <input type="number" id="experienceMonths" name="experience_months" min="0" max="11" value="0" required>
-                                    <span class="inline-label">Months</span>
-                                </div>
-                                <div id="experienceError" class="error-text hidden">Negative number is not allowed.</div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="state">State :</label>
-                                <select id="state" name="state" required>
-                                    <option value="">Select State</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                </select>
-                                </div>
-
-
-
-                            <button type="submit" class="submit-btn">Start Interview</button>
-                        </form>
-                    </div>
-                </div>
+      <div class="headshot-section">
+        <h3>Headshot</h3>
+        <div class="video-container square-box camera-preview">
+          <video id="video" autoplay playsinline></video>
+          <canvas id="canvas" class="hidden"></canvas>
+          <img id="captured-img" class="hidden" alt="Captured" />
+          <p id="camera-error" class="error-text hidden"></p>
         </div>
-    </div>
-    
+        <button id="capture-btn" class="capture-btn">Capture Photo</button>
+        <div id="camera-controls" class="hidden">
+          <button id="retake-btn" class="retake-btn">Retake Photo</button>
+          <button id="use-photo-btn" class="use-photo-btn">Use This Photo</button>
+        </div>
+      </div>
 
-    <script src="script.js"></script>
+      <form id="interview-form">
+        <div class="form-group">
+          <label for="fullName">Full Name :</label>
+          <input type="text" id="fullName" name="fullName" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address :</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-group">
+          <label for="phoneNumber">Phone Number :</label>
+          <input type="tel" id="phoneNumber" name="phoneNumber" required />
+        </div>
+        <div class="form-group">
+          <label for="jobRole">Job Role :</label>
+          <input type="text" id="jobRole" name="jobRole" required />
+        </div>
+        <div class="form-group experience-group">
+          <div class="experience-inputs">
+            <label class="Years">Experience :</label>
+            <input type="number" id="experienceYears" name="experience_years" min="0" value="0" required>
+            <span class="inline-label">Years</span>
+            <input type="number" id="experienceMonths" name="experience_months" min="0" max="11" value="0" required>
+            <span class="inline-label">Months</span>
+          </div>
+          <p class="freshers-note">If you are a fresher, please enter 0 for both years and months.</p>
+          <div id="experienceError" class="error-text hidden">Negative number is not allowed.</div>
+        </div>
+
+         <button type="submit" id="startInterviewBtn" class="submit-btn">Start Interview</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="HPapply.js"></script>
 </body>
 </html>

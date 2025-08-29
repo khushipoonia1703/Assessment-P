@@ -5,18 +5,23 @@
 
 /* Global Styles */
 body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
   margin: 0;
-  font-family: sans-serif;
+  overflow: hidden;
 }
 
 /* Header Styles */
 .header {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 10px px;
+  padding: 0px 20px;
+  height: 50px;
   background-color: #e62c40;
   border-bottom: 1px solid #ccc;
 }
+
 
 .logo img {
   border-radius: 0%;
@@ -32,7 +37,8 @@ body {
 /* Layout */
 .main-layout {
   display: flex;
-  height: calc(100vh - 50px);
+  height: calc(100vh - 60px);
+  overflow: hidden; 
 }
 
 /* =================== LEFT PANEL =================== */
@@ -42,68 +48,67 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #f0f6fc; /* Soft light blue background */
+  overflow-y: auto;
 }
 
 .timer-box {
-  background-color: #e2e2e2;
-  padding: 10px;
-  width: fit-content;
-  border-radius: 8px;
+ background-color: #e2e2e2;
+  padding: 8px 16px;
+  border-radius: 2px;
   font-weight: bold;
-  margin-bottom: 30px;
 }
 
 .question-block {
-  display: flex;
-  align-items: center;
-  margin-bottom: 30px;
+   display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .question-label {
   font-weight: bold;
-  margin-right: 10px;
+  color: #444;
+  font-size: 20px;
 }
 
 .question-text {
-  flex: 1;
+  max-height: 170px;
+  overflow-y: auto;
+  padding-right: 5px;
+  font-size: 18px;
+  min-height: 80px;
+  margin-bottom: 10px;
 }
 
 /* Answer Area */
 #answer {
-  width: 100%;
-  height: 220px; /* Taller vertically */
-  margin-bottom: 20px;
-  padding: 10px;
-  font-size: 1rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  height: 200px;
   resize: none;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  margin-bottom: 100px;
+  outline: none;
 }
 
 /* Navigation Buttons Layout */
 .navigation-row {
+  margin-top: auto;
+  align-self: flex-end;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-  
-}
-
-.nav-left,
-.nav-right {
-  display: flex;
-  gap: 10px;
-}
-
-.previous-btn-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  margin-bottom: 1rem;
+  gap: 12px;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  margin-top: auto;
+  margin-bottom: 10px;
+  padding-top: 20px;
 }
 
 /* Navigation Buttons */
 #prev-btn {
-  background-color: #999;
+  background-color: #007acc;
   color: white;
   font-weight: bold;
   border: none;
@@ -153,69 +158,136 @@ body {
 
 /* =================== RIGHT PANEL =================== */
 .right-panel {
-  flex: 1;
+  flex: 0.7;
   border-left: 1px solid #ccc;
   padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow-y: auto;
+}
+.status-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-/* Question Stats */
 .stats-box p {
   margin: 0 0 10px 0;
   font-weight: bold;
+  font-size: 16px;
+}
+
+.legend-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 16px;
+}
+
+.legend-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-box span{
+  font-weight: bold;
+}
+
+.legend-item {
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  border: 1px solid #000;
+}
+
+.legend-item.answered {
+  background-color: green;
+}
+
+.legend-item.revisit {
+  background-color: orange;
+}
+
+.legend-item.skipped {
+  background-color: grey;
+}
+.question-nav{
+  margin-top: 40px;
 }
 
 /* Question Nav */
 .question-nav h3 {
   margin-bottom: 10px;
+  font-size: 16px;
+}
+#options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-#options-container label {
-  display: block;
+#options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 5px;
   margin-bottom: 10px;
-  font-size: 1rem;
-  cursor: pointer;
 }
 
+#options-container label:hover {
+  background-color: #eef;
+}
 
 #question-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  max-height: 200px; /* ← adjust as needed */
+  overflow-y: auto;   /* ← scroll vertically if too many */
+  padding-right: 4px;
 }
 
 #question-buttons button {
   width: 36px;
   height: 36px;
-  font-weight: bold;
+  margin: 2px;
   background-color: #ddd;
+  font-weight: bold;
+  border-radius: 5px;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
 }
 
-#question-buttons button.active {
-  background-color: #007acc;
-  color: white;
+#question-buttons button.revisit {
+  background-color: orange;
+  color: #fff;
 }
-
 #question-buttons button.visited {
   background-color: green;
-  color: white;
+  color: #fff;
+}
+#question-buttons button.active {
+  border: 2px solid #000;
+}
+#question-buttons button.skipped {
+  background-color: grey;
+  color: #fff;
 }
 
-#question-buttons button.revisit {
-  background-color: hwb(60 0% 0%);
-  color: black;
-}
+
 
 /* Bottom Buttons */
 .bottom-buttons {
   display: flex;
-  justify-content: space-between;
-  margin-top: auto;
+  gap: 10px;
+  position: absolute;
+  bottom: 140px; /* Above camera */
+  right: 20px;
 }
 
 /* Submit & End Test Buttons */
@@ -242,11 +314,11 @@ body {
 
 /* Navigation Buttons Hover */
 #prev-btn:hover {
-  background-color: #7a7a7a;
+  background-color: #005fa3;
 }
 
 #revisit-btn:hover {
-  background-color: #d98b00;
+  background-color: #ea9f1f;
 }
 
 #next-btn:hover {
@@ -273,8 +345,16 @@ body {
 }
 
 #question-buttons button.revisit:hover {
-  background-color: #e6c200; /* darker yellow */
+  background-color: #f5c823; /* darker yellow */
 }
+.bottom-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
 
 /* ====== Modal Styles ====== */
 .modal-overlay {
@@ -293,7 +373,7 @@ body {
 .modal-content {
   background: white;
   padding: 2rem;
-  border-radius: 8px;
+  border-radius: 6px;
   text-align: center;
 }
 .modal {
@@ -336,7 +416,6 @@ body {
 .hidden {
   display: none;
 }
-
 /* Tab switch warning modal */
 #tab-warning-popup.modal {
   position: fixed;
@@ -356,7 +435,7 @@ body {
   margin-top: 40px;
   background-color: #fff3cd;
   padding: 20px 30px;
-  border-radius: 10px;
+  border-radius: 8px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   font-weight: bold;
@@ -369,5 +448,5 @@ body {
   border: none;
   cursor: pointer;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 2px;
 }

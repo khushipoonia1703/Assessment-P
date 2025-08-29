@@ -1,40 +1,53 @@
 :root {
   --dark-background: #2c3e50;
   --light-text: #ecf0f1;
+  --top-bar-red: #dc3545;
+  --pass-green: #28a745;
+  --fail-red: #dc3545;
+  --primary-red: #E74C3C;
+  --sidebar-dark-gray: #495057; /* Darker gray for hover states */
+  --sidebar-gray: #808080; /* Gray color for sidebar background */
   --grey-text: #bdc3c7;
   --active-bg: #dc3545; /* A darker red for active states */
-  --sidebar-gray: #808080; /* Gray color for sidebar background */
-  --sidebar-dark-gray: #495057; /* Darker gray for hover states */
-  --top-bar-red: #dc3545; /* Red color for top bar */
 }
 
 body {
   font-family: Arial, sans-serif;
   margin: 0;
-  min-height: 100vh;
+   height: 100vh;
+  overflow: hidden; /* Prevent body scroll, let inner content scroll */
   background-color: #f4f4f4;
+  display: flex;
 }
 
 .sidebar {
-  width: 200px;
-  background-color: var(
-    --sidebar-gray
-  ); /* Changed from var(--primary-red) to gray */
-  color: var(--light-text);
-  padding: 20px 0;
+  width: 250px;
+  background-color: var(--sidebar-gray); /* White sidebar */
+  color: #333333; /* Dark text */
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-  margin-top: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  height: 100vh;
+  border-right: 1px solid #ddd; /* Light border */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  z-index: 100;
 }
 
 .sidebar .logo {
   text-align: center;
   padding: 0;
-  margin-top: -21px;
+  margin-top: -10px;
 }
 
 .sidebar .logo img {
+  width: 100%;           /* Make it span full sidebar width */
+  max-width: 250px;      /* Optional safety limit */
+  height: auto;          /* Maintain aspect ratio */
+  display: block;        /* Remove inline spacing */
   border-radius: 0%;
   object-fit: cover;
   background-color: var(--light-text);
@@ -43,61 +56,82 @@ body {
 .sidebar .main-nav {
   list-style: none;
   padding: 0;
-  flex-grow: 1; /* Allows nav to take available space */
+  margin: 0;
+  margin-top: 25px;
+  flex-grow: 1;
 }
 
 .sidebar .main-nav li {
-  position: relative; /* For dropdown positioning */
+  position: relative;
 }
 
-/* Base style for ALL clickable nav items (direct links, dropdown toggles, dropdown items) */
-.sidebar .main-nav .nav-item,
 .sidebar .main-nav .nav-link,
-.sidebar .main-nav .dropdown-item {
-  display: block;
-  padding: 15px 20px; /* Base padding */
+.sidebar .main-nav .dropdown-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
   color: var(--light-text);
+  font-weight: 600;
   text-decoration: none;
-  transition: background-color 0.3s ease, border-left-color 0.3s ease; /* Added border-left-color to transition */
-  border-left: 5px solid transparent; /* Consistent space for border */
+  transition: background-color 0.3s ease;
+  cursor: pointer;
 }
 
-/* MODIFIED: Updated hover effects - Assessment gets red background on hover */
-.sidebar .main-nav .nav-item:hover,
-.sidebar .main-nav .nav-link:hover {
-  background-color: var(--top-bar-red);
-  color: var(--light-text); /* Keep text white */
+.sidebar .main-nav .nav-link:hover,
+.sidebar .main-nav .dropdown-toggle:hover {
+  background-color: #dc3545;
+  color: #f2f2f2;
 }
 
-/* MODIFIED: Separate hover for dropdown items - red text, white background */
+.sidebar .main-nav .dropdown-toggle::after {
+  content: "▸";
+  font-size: 12px;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.sidebar .main-nav .dropdown-toggle.active::after {
+  transform: rotate(90deg);
+}
+
+.sidebar .main-nav .dropdown-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  padding: 0;
+  border-left: 2px solid #dc3545;
+}
+
+.sidebar .main-nav .dropdown-menu.show {
+  display: flex;
+}
+
+.sidebar .main-nav .dropdown-item {
+  padding: 10px 30px;
+  text-decoration: none;
+  color: #333;
+  background-color: #f9f9f9;
+  transition: background-color 0.2s ease;
+}
+
 .sidebar .main-nav .dropdown-item:hover {
-  background-color: #fff !important; /* Keep white background */
-  color: var(--top-bar-red) !important; /* Red text color */
+  background-color: #ffffff;
+  color: #dc3545;
 }
 
-/* MODIFIED: Updated active state to use darker gray background */
-.sidebar .main-nav .nav-item.active {
-  background-color: var(--sidebar-dark-gray);
-  font-weight: bold;
-  border-left-color: var(--light-text); /* Makes border visible */
-}
-
-/* MODIFIED: Updated dropdown toggle active state - red background when toggled */
-.sidebar .main-nav .dropdown-toggle.active {
-  background-color: var(
-    --top-bar-red
-  ); /* Red background when dropdown is open */
-  font-weight: bold;
-  border-left-color: var(--light-text); /* Makes border visible */
-}
-
-/* Active state for dropdown menu items (e.g., My Result, All Result) */
 .sidebar .main-nav .dropdown-item.active {
-  background-color: var(
-    --top-bar-red
-  ); /* Darker background for active sub-item */
+  color: #dc3545;
+  background-color: #ffffff;
   font-weight: bold;
-  border-left-color: var(--light-text); /* Makes border visible */
+}
+
+/* Active parent (Assessment) when dropdown is open */
+.sidebar .main-nav .dropdown-toggle.active {
+  background-color: var(--active-bg);
+  color: #fff;
+  font-weight: bold;
+  border-left: 4px solid #dc3545;
 }
 
 /* Dropdown specific styles */
@@ -106,19 +140,33 @@ body {
   background-color: #ffffff; /* Same as sidebar for seamless look */
   padding: 0; /* Remove default list padding */
   list-style: none;
-  border-radius: 0px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  
 }
 
 .dropdown-menu.show {
   display: block; /* Shown when 'show' class is added by JS */
 }
 
-/* Indent dropdown items more. This padding is in *addition* to the 20px base + 5px transparent border */
+/* Override dropdown default (black text on white background) */
 .dropdown-menu .dropdown-item {
-  padding-left: 45px; /* (20px base + 5px border) + 20px extra indent = 45px total */
-  color: #ffffff; /* Lighter text for dropdown items */
-  background-color: #ffffff;
+  color: #000 !important;
+  background-color: #fff;
+  padding-left: 45px;
+  text-decoration: none;
+}
+
+/* MODIFIED: Updated dropdown menu item hover - red text on white background */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item.active {
+  background-color: #fff !important; /* White background */
+  color: var(--top-bar-red) !important; /* Red text */
+}
+
+/* Indent dropdown items more. This padding is in addition to the 20px base + 5px transparent border */
+.dropdown-menu .dropdown-item {
+  padding-left: 0px; /* (20px base + 5px border) + 20px extra indent = 45px total */
+  color: #000000; /* Lighter text for dropdown items */
+  background-color: #e3d8d8;
 }
 
 /* Basic arrow styling for dropdown toggles */
@@ -132,59 +180,57 @@ body {
   transform: rotate(90deg); /* Rotate arrow when active/open */
 }
 
-.sidebar .profile {
+/* Main content area */
+.main-content {
+  flex-grow: 1;
   padding: 20px;
-  text-align: center;
-  margin-top: auto; /* Pushes profile to the bottom */
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #fff;
+  overflow-y: auto;
+  box-sizing: border-box;
 }
 
-.sidebar .profile .profile-pic {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-top: 10px;
-  background-color: var(--light-text);
+/* Apply default white color only to top-level sidebar links */
+.sidebar > ul.main-nav > li > a {
+  color: var(--light-text);
+  text-decoration: none;
 }
 
 .layout-container {
   display: flex;
-  min-height: 100vh;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 }
 
 .main-area {
+  margin-left: 250px; /* ← Matches sidebar width */
   flex-grow: 1;
-  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden;  /* ✅ Prevent horizontal scroll */
 }
 
 /* MODIFIED: Updated top-bar styling to match screenshot's red header */
 .top-bar {
-  height: 50px;
-  background-color: var(
-    --top-bar-red
-  ); /* Changed to use the red color variable */
+  height: auto;
+  min-height: 60px;
+  background-color: var(--top-bar-red); /* Changed to use the red color variable */
   width: 100%;
   display: flex; /* Added flex display for content alignment */
   align-items: center; /* Center content vertically */
   padding: 0 20px; /* Added horizontal padding */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added subtle shadow */
+}
+
+.header {
+  background-color: #f8f9fa; /* Changed to light gray background */
+  color: #333; /* Changed to dark text */
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0; /* Removed rounded corners */
+  margin-bottom: 20px;
+  border-bottom: 1px solid #dee2e6; /* Added subtle border */
 }
 
 .summary-container {
@@ -217,7 +263,7 @@ h2 {
 }
 
 .config-table th {
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   padding: 8px 15px;
   text-align: center;
   font-size: 10px;
@@ -225,7 +271,7 @@ h2 {
 }
 
 .config-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #000000;
   padding: 8px 15px;
   text-align: center;
   font-size: 14px;
@@ -273,13 +319,17 @@ h2 {
   cursor: pointer;
 }
 
+.view-dropdown-toggle:hover {
+  background-color: #2d688a;
+}
+
 /* Dropdown Menu */
 .view-dropdown-menu {
   position: absolute;
   top: 110%;
   right: 0;
   z-index: 1000;
-  background-color: rgb(211, 209, 209);
+  background-color: rgb(255, 255, 255);
   border: 1px solid #ccc;
   border-radius: 4px;
   min-width: 200px;
@@ -289,16 +339,20 @@ h2 {
 
 /* Dropdown Items */
 .view-dropdown-item {
-  display: block;
-  padding: 10px 12px;
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  font-size: 14px;
   color: #333;
   text-decoration: none;
-  border-bottom: 1px solid #eee;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+  cursor: pointer;
 }
 
 .view-dropdown-item:hover {
-  background-color: #f0f0f0;
+  background-color: #f5f5f5;
+  padding-left: 20px;
 }
 
 /* Hide dropdown menu by default */
@@ -436,27 +490,139 @@ h2 {
   cursor: pointer;
 }
 
-.hidden {
-  display: none;
-}
 
+/* Improved Modal Background */
 .custom-modal {
   position: fixed;
+  z-index: 2000;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background-color: rgba(0,0,0,0.5);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 9999;
+  align-items: center;
+  transition: opacity 0.3s ease;
 }
 
+/* Improved Modal Content */
 .custom-modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 6px;
+  background-color: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 10px;
   width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: popIn 0.3s ease;
+  position: relative;
+  font-family: 'Segoe UI', sans-serif;
 }
 
+.custom-modal-content h3 {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.custom-modal-content label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #444;
+}
+
+.custom-modal-content input[type="text"] {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.custom-modal-content input[type="text"]:focus {
+  border-color: #3c8dbc;
+  outline: none;
+}
+
+.custom-modal-content button {
+  background-color: #3c8dbc;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.custom-modal-content button:hover {
+  background-color: #2d688a;
+}
+
+.custom-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #aaa;
+  transition: color 0.2s ease;
+}
+
+.custom-close:hover {
+  color: #333;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.page-footer {
+  text-align: center;
+  padding: 4px 0;
+  background-color: #f1f1f1;
+  color: #555;
+  font-size: 14px;
+}
+
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+
+.pagination-controls button {
+  background-color: transparent;
+  border: none;
+  color: #3c8dbc;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.pagination-controls button.active {
+  font-weight: bold;
+  color: black;
+  text-decoration: underline;
+}
+
+.pagination-controls button:hover {
+  color: #2d688a;
+}

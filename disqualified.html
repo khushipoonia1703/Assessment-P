@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Disqualified</title>
-  <link rel="stylesheet" href="disqualified.css" />
-</head>
-<body>
-  <div class="disqualified-container">
-    <h1>⚠️ Test Disqualified</h1>
-    <p>You have been disqualified from the assessment due to multiple violations such as tab switching.</p>
-      <p>Please contact the test administrator for further information.</p>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Disqualified - Assessment System</title>
+    <link rel="stylesheet" href="disqualified.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="disqualified-container">
+      <div class="warning-icon">⚠️</div>
 
-  <script src="disqualified.js"></script>
-</body>
+      <h1 class="main-title" style="font-size: 22px">Test Disqualified</h1>
+
+      <p class="subtitle" style="font-size: 18px">
+        Your test has been ended due to a policy violation.
+      </p>
+
+      <div class="violation-details">
+        <h3 class="violation-title" style="font-size: 16px">
+          <span>🚫</span>
+          Violation Detected
+        </h3>
+        <ul class="violation-list">
+          <li>Exceeded maximum allowed tab switches (3 times limit)</li>
+          <li>Multiple attempts to navigate away from the test</li>
+          <li>Potential security breach detected</li>
+        </ul>
+      </div>
+
+      <div class="info-section">
+        <h3 class="info-title">
+          <span>ℹ️</span>
+          What Happened?
+        </h3>
+        <p class="info-text">
+          Our proctoring system detected that you switched browser tabs or
+          windows more than the allowed limit during your assessment. This is
+          considered a violation of the test integrity policies.
+        </p>
+      </div>
+
+      <div class="action-buttons">
+        <a href="https://ivalueplus.ivphub.com/"class="btn btn-primary">Contact Support</a>
+        <a href="./RPindex.html" class="btn btn-secondary"> Return to Home </a>
+      </div>
+    </div>
+    <footer class="page-footer">
+    <p>&copy; iValuePlus Services Private Limited</p>
+    </footer>
+    </div>
+  </body>
 </html>
